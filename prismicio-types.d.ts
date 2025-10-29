@@ -150,10 +150,7 @@ interface FormDocumentData {
 export type FormDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<FormDocumentData>, "form", Lang>;
 
-type HomepageDocumentDataSlicesSlice =
-  | FormSlice
-  | MediaAndTextSlice
-  | TextContentSlice;
+type HomepageDocumentDataSlicesSlice = MediaAndTextSlice | TextContentSlice;
 
 /**
  * Content for Homepage documents
@@ -499,6 +496,17 @@ interface SettingsDocumentData {
    * - **Documentation**: https://prismic.io/docs/fields/image
    */
   logo: prismic.ImageField<never>;
+
+  /**
+   * Logo White field in *Settings*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.logo_white
+   * - **Tab**: Content
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  logo_white: prismic.ImageField<never>;
 }
 
 /**

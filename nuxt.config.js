@@ -17,6 +17,9 @@ export default defineNuxtConfig({
   app: {
     htmlAttrs: { lang: "sv" },
     head: {
+      link: [
+        { rel: 'icon', type: 'image/png', href: '/favicon.png' }
+      ],
       script: [
         {
           // Include Google Tag Manager if needed

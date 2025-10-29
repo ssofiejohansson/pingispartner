@@ -4,7 +4,7 @@
   >
     <div class="flex items-center md:space-x-10">
       <nuxt-link :to="home">
-        <prismic-image :field="settings?.data?.logo" class="h-6 w-auto block" />
+        <prismic-image :field="settings?.data?.logo" class="h-14 w-auto block" />
       </nuxt-link>
       <div
         class="to-md:absolute to-md:top-20 to-md:-left-0 to-md:w-full to-md:bg-zinc-800 to-md:z-50 to-md:p-5"

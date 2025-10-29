@@ -1,20 +1,22 @@
 <template>
-  <div class="w-full bg-zinc-900 text-white py-20">
-    <div class="container mb-20">
+  <div class="w-full py-20">
+    <div class="container">
+      <div class="flex flex-col items-center justify-center gap-8"> 
       <nuxt-link :to="home">
-        <prismic-image :field="settings?.data?.logo" class="h-6 w-auto block" />
+        <prismic-image :field="settings?.data?.logo" class="h-16 w-auto block" />
       </nuxt-link>
-    </div>
-    <div class="container text-center">
+
       <p class="text-xs">
         Skapad med kärlek av
         <a
           href="https://www.wilsoncreative.se"
           target="_blank"
-          class="underline"
+          class="underline hover:no-underline underline-offset-4"
           >Wilson Creative</a
         >
       </p>
+   
+    </div>
     </div>
   </div>
 </template>

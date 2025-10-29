@@ -13,6 +13,14 @@
           "constraint": {},
           "thumbnails": []
         }
+      },
+      "logo_white": {
+        "type": "Image",
+        "config": {
+          "label": "Logo White",
+          "constraint": {},
+          "thumbnails": []
+        }
       }
     }
   }
