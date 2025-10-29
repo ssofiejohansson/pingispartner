@@ -1,0 +1,6 @@
+{
+  "repositoryName": "wlsn-nuxt3-prismic",
+  "adapter": "@slicemachine/adapter-nuxt",
+  "libraries": ["./app/slices", "./app/form-fields", "./app/nav-items"],
+  "localSliceSimulatorURL": "http://localhost:3000/slice-simulator"
+}

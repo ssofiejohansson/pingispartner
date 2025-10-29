@@ -1,0 +1,240 @@
+{
+  "id": "text",
+  "type": "SharedSlice",
+  "name": "Field",
+  "description": "Text",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Text",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "label": {
+          "type": "Text",
+          "config": {
+            "label": "Label",
+            "placeholder": ""
+          }
+        },
+        "required": {
+          "type": "Boolean",
+          "config": {
+            "label": "Required",
+            "default_value": false,
+            "placeholder_true": "true",
+            "placeholder_false": "false"
+          }
+        },
+        "placeholder": {
+          "type": "Text",
+          "config": {
+            "label": "Placeholder",
+            "placeholder": ""
+          }
+        },
+        "size": {
+          "type": "Select",
+          "config": {
+            "label": "Size",
+            "placeholder": "",
+            "options": [
+              "100%",
+              "50%",
+              "33%"
+            ],
+            "default_value": "100%"
+          }
+        }
+      },
+      "items": {}
+    },
+    {
+      "id": "textarea",
+      "name": "Textarea",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "label": {
+          "type": "Text",
+          "config": {
+            "label": "Label",
+            "placeholder": ""
+          }
+        },
+        "required": {
+          "type": "Boolean",
+          "config": {
+            "label": "Required",
+            "default_value": false,
+            "placeholder_true": "true",
+            "placeholder_false": "false"
+          }
+        },
+        "placeholder": {
+          "type": "Text",
+          "config": {
+            "label": "Placeholder",
+            "placeholder": ""
+          }
+        },
+        "size": {
+          "type": "Select",
+          "config": {
+            "label": "Size",
+            "placeholder": "",
+            "options": [
+              "100%",
+              "50%",
+              "33%"
+            ],
+            "default_value": "100%"
+          }
+        }
+      },
+      "items": {}
+    },
+    {
+      "id": "select",
+      "name": "Select",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "label": {
+          "type": "Text",
+          "config": {
+            "label": "Label",
+            "placeholder": ""
+          }
+        },
+        "required": {
+          "type": "Boolean",
+          "config": {
+            "label": "Required",
+            "default_value": false,
+            "placeholder_true": "true",
+            "placeholder_false": "false"
+          }
+        },
+        "placeholder": {
+          "type": "Text",
+          "config": {
+            "label": "Placeholder",
+            "placeholder": ""
+          }
+        },
+        "size": {
+          "type": "Select",
+          "config": {
+            "label": "Size",
+            "placeholder": "",
+            "options": [
+              "100%",
+              "50%",
+              "33%"
+            ],
+            "default_value": "100%"
+          }
+        }
+      },
+      "items": {
+        "option": {
+          "type": "Text",
+          "config": {
+            "label": "value : text",
+            "placeholder": "red : Röd"
+          }
+        }
+      }
+    },
+    {
+      "id": "consent",
+      "name": "Consent",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "label": {
+          "type": "Text",
+          "config": {
+            "label": "Label",
+            "placeholder": ""
+          }
+        },
+        "required": {
+          "type": "Boolean",
+          "config": {
+            "label": "Required",
+            "default_value": false,
+            "placeholder_true": "true",
+            "placeholder_false": "false"
+          }
+        },
+        "consent_message": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Consent message",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em,hyperlink"
+          }
+        }
+      },
+      "items": {}
+    },
+    {
+      "id": "email",
+      "name": "Email",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "label": {
+          "type": "Text",
+          "config": {
+            "label": "Label",
+            "placeholder": ""
+          }
+        },
+        "required": {
+          "type": "Boolean",
+          "config": {
+            "label": "Required",
+            "default_value": false,
+            "placeholder_true": "true",
+            "placeholder_false": "false"
+          }
+        },
+        "placeholder": {
+          "type": "Text",
+          "config": {
+            "label": "Placeholder",
+            "placeholder": ""
+          }
+        },
+        "size": {
+          "type": "Select",
+          "config": {
+            "label": "Size",
+            "placeholder": "",
+            "options": [
+              "100%",
+              "50%",
+              "33%"
+            ],
+            "default_value": "100%"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

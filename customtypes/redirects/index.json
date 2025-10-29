@@ -1,0 +1,42 @@
+{
+  "id": "redirects",
+  "label": "Redirects",
+  "repeatable": false,
+  "status": true,
+  "format": "custom",
+  "json": {
+    "Content": {
+      "redirects": {
+        "config": {
+          "label": "redirects",
+          "fields": {
+            "old": {
+              "config": {
+                "label": "Old path",
+                "placeholder": ""
+              },
+              "type": "Text"
+            },
+            "new": {
+              "config": {
+                "label": "New path",
+                "placeholder": ""
+              },
+              "type": "Text"
+            },
+            "status": {
+              "config": {
+                "label": "Status",
+                "placeholder": "",
+                "options": ["301", "302"],
+                "default_value": "301"
+              },
+              "type": "Select"
+            }
+          }
+        },
+        "type": "Group"
+      }
+    }
+  }
+}

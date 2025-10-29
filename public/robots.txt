@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+Allow: /sitemap.xml
+
+# Block common bots that can overload servers
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10
+
+# Add sitemap location
+Sitemap: /sitemap.xml

@@ -1,0 +1,99 @@
+{
+  "id": "page",
+  "label": "Page",
+  "repeatable": true,
+  "status": true,
+  "format": "page",
+  "json": {
+    "Content": {
+      "title": {
+        "config": {
+          "label": "Title",
+          "placeholder": "",
+          "allowTargetBlank": false,
+          "single": "heading1"
+        },
+        "type": "StructuredText"
+      },
+      "uid": {
+        "config": {
+          "label": "UID",
+          "placeholder": ""
+        },
+        "type": "UID"
+      },
+      "parent": {
+        "config": {
+          "label": "Parent",
+          "customtypes": ["page"],
+          "select": "document"
+        },
+        "type": "Link"
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "form": {
+              "type": "SharedSlice"
+            },
+            "media_and_text": {
+              "type": "SharedSlice"
+            },
+            "text_content": {
+              "type": "SharedSlice"
+            }
+          }
+        }
+      }
+    },
+    "SEO": {
+      "metaTitle": {
+        "config": {
+          "label": "Meta title",
+          "placeholder": ""
+        },
+        "type": "Text"
+      },
+      "metaDescription": {
+        "config": {
+          "label": "Meta description",
+          "placeholder": ""
+        },
+        "type": "Text"
+      },
+      "metaImage": {
+        "config": {
+          "label": "Meta image",
+          "constraint": {},
+          "thumbnails": []
+        },
+        "type": "Image"
+      },
+      "canonical_url": {
+        "type": "Text",
+        "config": {
+          "label": "Canonical URL",
+          "placeholder": ""
+        }
+      },
+      "keywords": {
+        "type": "Text",
+        "config": {
+          "label": "Keywords",
+          "placeholder": ""
+        }
+      },
+      "hide_page": {
+        "type": "Boolean",
+        "config": {
+          "label": "Hide this page from search results?",
+          "placeholder_false": "No",
+          "placeholder_true": "Yes",
+          "default_value": false
+        }
+      }
+    }
+  }
+}
