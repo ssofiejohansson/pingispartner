@@ -29,6 +29,6 @@ defineProps(["doc"]);
 }
 
 :deep(a) {
-  @apply text-green-700 underline hover:no-underline underline-offset-2;
+  @apply text-primaryDark underline hover:no-underline underline-offset-2;
 }
 </style>

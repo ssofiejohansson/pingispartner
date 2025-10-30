@@ -7,7 +7,7 @@
       <input
         type="checkbox"
         name="consent"
-        class="border border-zinc-300 w-6 h-6 mr-3"
+        class="border border-dark w-6 h-6 mr-3"
         :value="prismicH.asText(data.primary.consent_message)"
         :required="!!data?.primary?.required"
         :aria-required="data?.primary?.required ? 'true' : 'false'"

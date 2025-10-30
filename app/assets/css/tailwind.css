@@ -10,7 +10,7 @@
   }
 
   body {
-    @apply bg-neutral-100 text-zinc-800 font-[Inter] antialiased;
+    @apply bg-light text-dark font-[Inter] antialiased;
   }
 
   h1,
@@ -66,15 +66,15 @@
   }
 
   .rich-text a {
-    @apply text-emerald-700 underline underline-offset-4 hover:no-underline;
+    @apply text-primaryDark underline underline-offset-4 hover:no-underline;
   }
 
   .form-input {
-    @apply border border-zinc-300 w-full h-12 rounded-md px-5;
+    @apply border border-dark w-full h-12 rounded-md px-5;
   }
 
   .form-textarea {
-    @apply border border-zinc-300 w-full h-20 rounded-md p-5;
+    @apply border border-dark w-full h-20 rounded-md p-5;
   }
 
 }

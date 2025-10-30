@@ -3,14 +3,14 @@
     <PrismicLink
       v-if="link.link_type === 'Document'"
       :field="link"
-      class="hover:text-green-500"
+      class="hover:text-primaryDark"
     >
       {{ text }}
     </PrismicLink>
 
     <ul
       v-if="items.length"
-      class="absolute top-full left-0 group-hover:block hidden bg-white shadow-sm p-3 rounded-md text-zinc-900"
+      class="absolute top-full left-0 group-hover:block hidden bg-light shadow-sm p-3 rounded-md text-dark"
     >
       <NavigationItem
         v-for="(item, index) in items"

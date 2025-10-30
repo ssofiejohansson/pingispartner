@@ -1,5 +1,5 @@
 <template>
-  <div class="border border-zinc-300 flex items-center mr-3">
+  <div class="border border-dark flex items-center mr-3">
     <div
       @click="$emit('decreaseQuantity')"
       class="remove h-full flex items-center justify-center cursor-pointer"

@@ -1,6 +1,6 @@
 <template>
   <nav v-if="nav?.data?.slices?.length > 0">
-    <ul class="md:flex md:space-x-5">
+    <ul class="md:flex md:space-x-8">
       <NavigationItem
         v-for="(item, index) in nav.data.slices"
         :key="`menu-item-${index}`"

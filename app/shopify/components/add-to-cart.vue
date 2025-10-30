@@ -7,7 +7,7 @@
     />
     <button
       @click="addProductToCart(product, quantity)"
-      class="bg-black hover:bg-zinc-800 text-white px-8 antialiased h-14 relative"
+      class="bg-dark hover:bg-dark text-light px-8 antialiased h-14 relative"
     >
       <span
         class="transition-opacity"
