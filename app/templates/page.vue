@@ -1,6 +1,5 @@
 <template>
   <div class="">
-    <site-breadcrumbs :doc="doc" />
     <slices :doc="doc" />
   </div>
 </template>

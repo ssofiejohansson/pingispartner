@@ -1,13 +1,13 @@
 <template>
   <div
-    class="sticky left-0 top-0 w-full flex justify-between px-5 md:px-8 items-center h-20 bg-black text-white z-50"
+    class="sticky left-0 top-0 w-full flex justify-center px-5 md:px-8 items-center pt-10 text-dark z-50"
   >
-    <div class="flex items-center md:space-x-10">
+    <div class="flex flex-col items-center md:space-x-10">
       <nuxt-link :to="home">
-        <prismic-image :field="settings?.data?.logo" class="h-14 w-auto block" />
+        <prismic-image :field="settings?.data?.logo" class="h-20 w-auto block" />
       </nuxt-link>
       <div
-        class="to-md:absolute to-md:top-20 to-md:-left-0 to-md:w-full to-md:bg-zinc-800 to-md:z-50 to-md:p-5"
+        class="to-md:absolute to-md:top-20 to-md:-left-0 to-md:w-full to-md:z-50 to-md:p-5"
         :class="{ 'to-md:hidden': !mobileMenuOpen }"
       >
         <SiteNavigation />

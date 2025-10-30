@@ -42,9 +42,16 @@ module.exports = {
 
       /* Brand colors */
       colors: {
-        "brand-primary": "#000000",
-        "brand-secondary": "#000000",
-        "brand-accent-1": "#000000",
+        primary: "#008650", // main green
+        primaryDark: "#02693f", // dark green
+        light: "#f9f9f9", // light
+        dark: "#242424", // dark
+        accent: "#ed6b44", // accent red
+      },
+
+       fontFamily: {
+        inter: ["Inter", "sans-serif"],
+        outfit: ["Outfit", "sans-serif"],
       },
     },
   },
