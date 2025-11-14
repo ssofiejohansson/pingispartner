@@ -28,6 +28,18 @@
             "allowTargetBlank": true,
             "multi": "paragraph,heading2,heading3,heading4,heading5,heading6,strong,em,list-item,o-list-item"
           }
+        },
+        "type": {
+          "type": "Select",
+          "config": {
+            "label": "Type",
+            "placeholder": "Choose type",
+            "options": [
+              "service",
+              "reference"
+            ],
+            "default_value": "service"
+          }
         }
       },
       "items": {}
@@ -55,6 +67,18 @@
             "placeholder": "",
             "allowTargetBlank": true,
             "multi": "paragraph,heading2,heading3,heading4,heading5,heading6,strong,em,list-item,o-list-item"
+          }
+        },
+        "type": {
+          "type": "Select",
+          "config": {
+            "label": "Type",
+            "placeholder": "Choose type",
+            "options": [
+              "service",
+              "reference"
+            ],
+            "default_value": "service"
           }
         }
       },

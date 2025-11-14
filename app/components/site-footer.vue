@@ -5,16 +5,6 @@
       <nuxt-link :to="home">
         <prismic-image :field="settings?.data?.logo" class="h-16 w-auto block" />
       </nuxt-link>
-
-      <p class="text-xs">
-        Skapad med kärlek av
-        <a
-          href="https://www.wilsoncreative.se"
-          target="_blank"
-          class="underline hover:no-underline underline-offset-4"
-          >Wilson Creative</a
-        >
-      </p>
    
     </div>
     </div>
