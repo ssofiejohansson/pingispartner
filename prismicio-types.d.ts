@@ -150,7 +150,10 @@ interface FormDocumentData {
 export type FormDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<FormDocumentData>, "form", Lang>;
 
-type HomepageDocumentDataSlicesSlice = MediaAndTextSlice | TextContentSlice;
+type HomepageDocumentDataSlicesSlice =
+  | ReferencesSlice
+  | MediaAndTextSlice
+  | TextContentSlice;
 
 /**
  * Content for Homepage documents
@@ -295,7 +298,7 @@ export type NavigationDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
-  | FormSlice
+  | ReferencesSlice
   | MediaAndTextSlice
   | TextContentSlice;
 
@@ -483,6 +486,82 @@ export type RedirectsDocument<Lang extends string = string> =
   >;
 
 /**
+ * Content for Reference documents
+ */
+interface ReferenceDocumentData {
+  /**
+   * Image field in *Reference*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: reference.image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  image: prismic.ImageField<"small">;
+
+  /**
+   * Name field in *Reference*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: reference.name
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  name: prismic.RichTextField;
+
+  /**
+   * Titel field in *Reference*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Företag eller roll
+   * - **API ID Path**: reference.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Text field in *Reference*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: reference.text
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  text: prismic.RichTextField;
+
+  /**
+   * Category field in *Reference*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: reference.category
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  category: prismic.SelectField<"private" | "company">;
+}
+
+/**
+ * Reference document from Prismic
+ *
+ * - **API ID**: `reference`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ReferenceDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<ReferenceDocumentData>,
+    "reference",
+    Lang
+  >;
+
+/**
  * Content for Settings documents
  */
 interface SettingsDocumentData {
@@ -532,49 +611,8 @@ export type AllDocumentTypes =
   | NavigationDocument
   | PageDocument
   | RedirectsDocument
+  | ReferenceDocument
   | SettingsDocument;
-
-/**
- * Primary content in *Form → Default → Primary*
- */
-export interface FormSliceDefaultPrimary {
-  /**
-   * Select form field in *Form → Default → Primary*
-   *
-   * - **Field Type**: Content Relationship
-   * - **Placeholder**: *None*
-   * - **API ID Path**: form.default.primary.form
-   * - **Documentation**: https://prismic.io/docs/fields/content-relationship
-   */
-  form: prismic.ContentRelationshipField<"form">;
-}
-
-/**
- * Default variation for Form Slice
- *
- * - **API ID**: `default`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slices
- */
-export type FormSliceDefault = prismic.SharedSliceVariation<
-  "default",
-  Simplify<FormSliceDefaultPrimary>,
-  never
->;
-
-/**
- * Slice variation for *Form*
- */
-type FormSliceVariation = FormSliceDefault;
-
-/**
- * Form Shared Slice
- *
- * - **API ID**: `form`
- * - **Description**: Form
- * - **Documentation**: https://prismic.io/docs/slices
- */
-export type FormSlice = prismic.SharedSlice<"form", FormSliceVariation>;
 
 /**
  * Primary content in *MediaAndText → Default → Primary*
@@ -691,6 +729,147 @@ type MediaAndTextSliceVariation =
 export type MediaAndTextSlice = prismic.SharedSlice<
   "media_and_text",
   MediaAndTextSliceVariation
+>;
+
+/**
+ * Item in *ReferenceList → Default → Primary → Reference*
+ */
+export interface ReferencesSliceDefaultPrimaryReferenceItem {
+  /**
+   * item field in *ReferenceList → Default → Primary → Reference*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: references.default.primary.reference[].item
+   * - **Documentation**: https://prismic.io/docs/fields/content-relationship
+   */
+  item: ContentRelationshipFieldWithData<
+    [
+      {
+        id: "reference";
+        fields: ["image", "name", "text", "category", "title"];
+      },
+    ]
+  >;
+}
+
+/**
+ * Item in *ReferenceList → Preview → Primary → Reference*
+ */
+export interface ReferencesSlicePreviewPrimaryReferenceItem {
+  /**
+   * item field in *ReferenceList → Preview → Primary → Reference*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: references.preview.primary.reference[].item
+   * - **Documentation**: https://prismic.io/docs/fields/content-relationship
+   */
+  item: ContentRelationshipFieldWithData<
+    [
+      {
+        id: "reference";
+        fields: ["image", "name", "text", "category", "title"];
+      },
+    ]
+  >;
+}
+
+/**
+ * Primary content in *ReferenceList → Default → Primary*
+ */
+export interface ReferencesSliceDefaultPrimary {
+  /**
+   * Heading field in *ReferenceList → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: references.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  heading: prismic.RichTextField;
+
+  /**
+   * Reference field in *ReferenceList → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: references.default.primary.reference[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  reference: prismic.GroupField<
+    Simplify<ReferencesSliceDefaultPrimaryReferenceItem>
+  >;
+}
+
+/**
+ * Default variation for ReferenceList Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ReferencesSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ReferencesSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Primary content in *ReferenceList → Preview → Primary*
+ */
+export interface ReferencesSlicePreviewPrimary {
+  /**
+   * Heading field in *ReferenceList → Preview → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: references.preview.primary.heading
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  heading: prismic.RichTextField;
+
+  /**
+   * Reference field in *ReferenceList → Preview → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: references.preview.primary.reference[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  reference: prismic.GroupField<
+    Simplify<ReferencesSlicePreviewPrimaryReferenceItem>
+  >;
+}
+
+/**
+ * Preview variation for ReferenceList Slice
+ *
+ * - **API ID**: `preview`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ReferencesSlicePreview = prismic.SharedSliceVariation<
+  "preview",
+  Simplify<ReferencesSlicePreviewPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *ReferenceList*
+ */
+type ReferencesSliceVariation = ReferencesSliceDefault | ReferencesSlicePreview;
+
+/**
+ * ReferenceList Shared Slice
+ *
+ * - **API ID**: `references`
+ * - **Description**: References
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ReferencesSlice = prismic.SharedSlice<
+  "references",
+  ReferencesSliceVariation
 >;
 
 /**
@@ -1179,19 +1358,25 @@ declare module "@prismicio/client" {
       RedirectsDocument,
       RedirectsDocumentData,
       RedirectsDocumentDataRedirectsItem,
+      ReferenceDocument,
+      ReferenceDocumentData,
       SettingsDocument,
       SettingsDocumentData,
       AllDocumentTypes,
-      FormSlice,
-      FormSliceDefaultPrimary,
-      FormSliceVariation,
-      FormSliceDefault,
       MediaAndTextSlice,
       MediaAndTextSliceDefaultPrimary,
       MediaAndTextSliceImageToTheRightPrimary,
       MediaAndTextSliceVariation,
       MediaAndTextSliceDefault,
       MediaAndTextSliceImageToTheRight,
+      ReferencesSlice,
+      ReferencesSliceDefaultPrimaryReferenceItem,
+      ReferencesSliceDefaultPrimary,
+      ReferencesSlicePreviewPrimaryReferenceItem,
+      ReferencesSlicePreviewPrimary,
+      ReferencesSliceVariation,
+      ReferencesSliceDefault,
+      ReferencesSlicePreview,
       TextContentSlice,
       TextContentSliceDefaultPrimary,
       TextContentSliceVariation,

@@ -20,6 +20,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "references": {
+              "type": "SharedSlice"
+            },
             "media_and_text": {
               "type": "SharedSlice"
             },
