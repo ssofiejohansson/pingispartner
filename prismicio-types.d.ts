@@ -637,17 +637,6 @@ export interface MediaAndTextSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/fields/rich-text
    */
   content: prismic.RichTextField;
-
-  /**
-   * Type field in *MediaAndText → Default → Primary*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: Choose type
-   * - **Default Value**: service
-   * - **API ID Path**: media_and_text.default.primary.type
-   * - **Documentation**: https://prismic.io/docs/fields/select
-   */
-  type: prismic.SelectField<"service" | "reference", "filled">;
 }
 
 /**
@@ -686,17 +675,6 @@ export interface MediaAndTextSliceImageToTheRightPrimary {
    * - **Documentation**: https://prismic.io/docs/fields/rich-text
    */
   content: prismic.RichTextField;
-
-  /**
-   * Type field in *MediaAndText → Image to the right → Primary*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: Choose type
-   * - **Default Value**: service
-   * - **API ID Path**: media_and_text.imageToTheRight.primary.type
-   * - **Documentation**: https://prismic.io/docs/fields/select
-   */
-  type: prismic.SelectField<"service" | "reference", "filled">;
 }
 
 /**

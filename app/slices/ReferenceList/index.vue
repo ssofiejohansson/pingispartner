@@ -2,8 +2,9 @@
   <section
     :data-slice-type="slice.slice_type"
     :data-slice-variation="slice.variation"
-    class="my-12 lg:my-24 xl:my-32">
-    {{ slice }}
+    class="my-12 lg:my-24 xl:my-32"
+  >
+    <!-- {{ slice }} -->
     <div class="container mx-auto px-5 lg:px-10">
       <div v-if="slice.primary.heading && slice.primary.heading.length">
         <prismic-rich-text :field="slice.primary.heading" />
@@ -14,60 +15,55 @@
         v-if="slice.variation === 'default'"
         v-for="ref in slice.primary.reference"
         :key="ref.item.id"
-        class="flex flex-col lg:flex-row items-center gap-8">
+        class="max-w-[800px] bg-white flex flex-col lg:flex-row gap-8 items-left justify-center p-6 lg:p-10 mb-6 mx-auto shadow-md"
+      >
+   
         <!-- Image -->
         <img
           v-if="ref.item.data.image"
           :src="ref.item.data.image.url"
           :alt="ref.item.data.image.alt || ''"
-          class="w-48 h-48 lg:w-48 lg:h-48 rounded-full object-cover" />
+          class="w-28 h-28 lg:w-48 lg:h-48 rounded-full object-cover"
+        />
 
         <!-- Text content -->
         <div
-          class="w-full lg:w-1/2 p-5 lg:px-10 xl:px-14 flex flex-col justify-center rich-text">
+          class= "lg:px-6 flex flex-col justify-center rich-text"
+        >
           <prismic-rich-text :field="ref.item.data.name" />
           <prismic-rich-text :field="ref.item.data.title" />
           <prismic-rich-text :field="ref.item.data.text" />
-        </div>
+        </div> 
       </div>
+   
 
-      <div v-if="slice.variation === 'preview'" class="flex">
+<!-- old preview  -->
+      <!-- <div v-if="slice.variation === 'preview'" class="flex ">
+       
         <div
           v-for="ref in slice.primary.reference"
           :key="ref.item.id"
-          class="h-48 flex flex-col gap-4 justify-between">
-          <div class="">
-            <prismic-rich-text :field="ref.item.data.name" class="" />
-          </div>
+          class="w-80 border p-4 border-red-500"
+        >
+          <div>
+         
+          <prismic-rich-text :field="ref.item.data.name" />
+          <prismic-rich-text :field="ref.item.data.text"/>
+       
+       </div>
 
-          <p class="">
-            {{ getExcerpt(ref.item.data.text, 140) }}
-          </p>
-
-          <PrismicLink
-      :field="ref.item"
-      class=""
-    >
-      Läs mer →
-    </PrismicLink>
         </div>
-      </div>
+      </div> -->
     </div>
+    <!-- preview slider -->
+      <div v-if="slice.variation === 'preview'" class="py-10 mx-2">
+        <Slider :slides="slice.primary.reference"/>
+      </div>
+
+
   </section>
 </template>
+
 <script setup>
-defineProps(["slice", "index", "slices", "context"]);
-
-const getExcerpt = (richText, length = 100) => {
-  if (!richText || !Array.isArray(richText)) return "";
-
-  const fullText = richText
-    .map((block) => block.text)
-    .join(" ")
-    .trim();
-
-  if (fullText.length <= length) return fullText;
-
-  return fullText.slice(0, length) + "…";
-};
+  defineProps(["slice", "index", "slices", "context"]);
 </script>
