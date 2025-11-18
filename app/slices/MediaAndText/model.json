@@ -28,6 +28,15 @@
             "allowTargetBlank": true,
             "multi": "paragraph,heading2,heading3,heading4,heading5,heading6,strong,em,list-item,o-list-item"
           }
+        },
+        "fixed_image": {
+          "type": "Boolean",
+          "config": {
+            "label": "Fixed image",
+            "placeholder_false": "normal",
+            "placeholder_true": "fixed",
+            "default_value": false
+          }
         }
       },
       "items": {}

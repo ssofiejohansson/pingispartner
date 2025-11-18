@@ -2,7 +2,7 @@
   <div
     :class="[
       'sticky top-0 w-full flex flex-col gap-2 justify-center px-5 lg:px-8 items-center pt-8 z-50 transition-colors duration-300',
-      scrolled && isDesktop ? 'bg-light/40 backdrop-blur-lg  border-b-2' : ''
+      scrolled && isDesktop ? 'bg-light/40 backdrop-blur-lg ' : ''
     ]"
   >
     <div class="flex items-center">
@@ -36,6 +36,7 @@
         <SiteNavigation @click.native="mobileMenuOpen = false" />
       </div>
     </transition>
+
   </div>
 </template>
 

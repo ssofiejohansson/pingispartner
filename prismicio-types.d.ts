@@ -637,6 +637,17 @@ export interface MediaAndTextSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/fields/rich-text
    */
   content: prismic.RichTextField;
+
+  /**
+   * Fixed image field in *MediaAndText → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: media_and_text.default.primary.fixed_image
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  fixed_image: prismic.BooleanField;
 }
 
 /**
