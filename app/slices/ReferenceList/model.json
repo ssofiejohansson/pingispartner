@@ -12,15 +12,6 @@
       "description": "Default",
       "imageUrl": "",
       "primary": {
-        "heading": {
-          "type": "StructuredText",
-          "config": {
-            "label": "Heading",
-            "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "heading1,heading2,heading3,heading4,heading5,heading6,paragraph,strong,em,list-item,o-list-item,hyperlink"
-          }
-        },
         "reference": {
           "type": "Group",
           "config": {
@@ -61,15 +52,6 @@
       "description": "Default",
       "imageUrl": "",
       "primary": {
-        "heading": {
-          "type": "StructuredText",
-          "config": {
-            "label": "Heading",
-            "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "heading1,heading2,heading3,heading4,heading5,heading6,paragraph,strong,em,list-item,o-list-item,hyperlink"
-          }
-        },
         "reference": {
           "type": "Group",
           "config": {

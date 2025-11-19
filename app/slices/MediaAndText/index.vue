@@ -2,35 +2,38 @@
   <section
     :data-slice-type="slice.slice_type"
     :data-slice-variation="slice.variation"
-    class="">
-
-    <div class="wide"
-     :class="[
-            slice.primary.fixed_image ? 'container mb-20' : ''
-          ]">
-
+    class=""
+  >
+    <div
+      class="wide"
+      :class="[slice.primary.fixed_image ? 'container mb-20' : '']"
+    >
       <!-- {{ slice }} -->
 
       <div
         class="flex flex-col lg:flex-row bg-white w-full justify-center"
-          :class="[
-            slice.primary.fixed_image ? 'items-start' : 'items-center'
-          ]">
-      
-    
+        :class="[slice.primary.fixed_image ? 'items-start' : 'items-center']"
+      >
         <!-- MEDIA -->
-         <div
+        <div
+          v-if="slice.primary.media && slice.primary.media.url"
           class="flex justify-center w-full to-lg:max-h-[300px] lg:w-1/2 flex-shrink-0"
           :class="[
             slice.variation === 'default' ? 'lg:order-1' : 'lg:order-2',
-            slice.primary.fixed_image ? 'lg:w-1/3 lg:sticky lg:top-40' : ''
+            slice.primary.fixed_image ? 'lg:w-1/3 lg:sticky lg:top-40' : '',
           ]"
         >
           <video
-            v-if="slice?.primary?.media?.kind === 'file' && slice?.primary?.media?.name.includes('mp4')"
+            v-if="
+              slice?.primary?.media?.kind === 'file' &&
+              slice?.primary?.media?.name.includes('mp4')
+            "
             :src="slice?.primary?.media?.url"
             class="w-full h-auto aspect-[16/12] object-cover"
-            muted autoplay playsinline loop
+            muted
+            autoplay
+            playsinline
+            loop
           ></video>
 
           <img
@@ -43,44 +46,40 @@
 
         <!-- CONTENT -->
         <div
-          class="w-full lg:w-1/2 p-6 rich-text "
+          v-if="slice.variation !== 'preview'"
+          class="w-full lg:w-1/2 p-6 rich-text"
           :class="[
             slice.variation === 'default' ? 'lg:order-2' : 'lg:order-1',
-            slice.primary.fixed_image ? 'lg:w-2/3 p-10' : ''
-          
-          ]">
+            slice.primary.fixed_image ? 'lg:w-2/3 p-10' : '',
+          ]"
+        >
           <prismic-rich-text :field="slice.primary.content" />
+
+          <div
+            v-if="slice.primary.button?.some((btn) => btn.text || btn.url)"
+            class="flex flex-wrap gap-4 mt-6 justify-start"
+          >
+            <Button
+              v-for="(btn, i) in slice.primary.button"
+              :key="i"
+              :btn="btn"
+            />
+          </div>
         </div>
       </div>
-    </div>
 
+      <!-- preview  -->
+
+      <div
+        v-if="slice.variation === 'preview'"
+        class="container flex flex-col mb-3 bg-white"
+      >
+        <prismic-rich-text :field="slice.primary.content" />
+      </div>
+    </div>
   </section>
 </template>
 
 <script setup>
 defineProps(["slice", "index", "slices", "context"]);
 </script>
-
-<style>
- .rich-text ul {
-  list-style: none; 
-  padding-left: 1.25rem;
-}
-
-.rich-text ul li {
-  position: relative;
-  padding-left: 2rem;
-}
-
-.rich-text ul li::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0.4rem;
-  width: 1rem; 
-  height: 1rem;
-  background-image: url('/favicon.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-</style>

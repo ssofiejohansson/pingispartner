@@ -1,0 +1,65 @@
+{
+  "id": "timeline",
+  "type": "SharedSlice",
+  "name": "Timeline",
+  "description": "Timeline",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "year": {
+          "type": "Group",
+          "config": {
+            "label": "Year",
+            "repeat": true,
+            "fields": {
+              "year": {
+                "type": "Number",
+                "config": {
+                  "label": "Årtal",
+                  "placeholder": ""
+                }
+              },
+              "title": {
+                "type": "Text",
+                "config": {
+                  "label": "Titel",
+                  "placeholder": ""
+                }
+              },
+              "content": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Text",
+                  "placeholder": "Valfri text",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph,strong,em,hyperlink,image,embed,list-item,o-list-item"
+                }
+              },
+              "image": {
+                "type": "Image",
+                "config": {
+                  "label": "Valfri bild",
+                  "constraint": {},
+                  "thumbnails": [
+                    {
+                      "name": "small",
+                      "width": 500,
+                      "height": 500
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

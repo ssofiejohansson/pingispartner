@@ -9,4 +9,5 @@ export const components = defineSliceZoneComponents({
   ),
   references: defineAsyncComponent(() => import("./ReferenceList/index.vue")),
   text_content: defineAsyncComponent(() => import("./TextContent/index.vue")),
+  timeline: defineAsyncComponent(() => import("./Timeline/index.vue")),
 });

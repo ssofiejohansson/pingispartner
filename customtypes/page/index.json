@@ -35,6 +35,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "timeline": {
+              "type": "SharedSlice"
+            },
             "references": {
               "type": "SharedSlice"
             },

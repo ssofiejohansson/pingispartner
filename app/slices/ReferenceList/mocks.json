@@ -3,17 +3,6 @@
 		"__TYPE__": "SharedSliceContent",
 		"variation": "default",
 		"primary": {
-			"heading": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "paragraph",
-						"content": {
-							"text": "Do amet elit dolor pariatur. Laboris amet consequat veniam adipisicing magna tempor nostrud ipsum est voluptate quis esse elit nostrud consectetur."
-						}
-					}
-				]
-			},
 			"reference": {
 				"__TYPE__": "GroupContentType",
 				"value": [
@@ -42,17 +31,6 @@
 		"__TYPE__": "SharedSliceContent",
 		"variation": "preview",
 		"primary": {
-			"heading": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "paragraph",
-						"content": {
-							"text": "In dolor magna amet nisi dolore laborum sit dolor aliquip. Labore duis cupidatat labore elit irure mollit aliquip. Laborum eiusmod excepteur labore mollit occaecat laboris esse aute anim tempor."
-						}
-					}
-				]
-			},
 			"reference": {
 				"__TYPE__": "GroupContentType",
 				"value": [

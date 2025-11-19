@@ -151,6 +151,7 @@ export type FormDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<FormDocumentData>, "form", Lang>;
 
 type HomepageDocumentDataSlicesSlice =
+  | TimelineSlice
   | ReferencesSlice
   | MediaAndTextSlice
   | TextContentSlice;
@@ -298,6 +299,7 @@ export type NavigationDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | TimelineSlice
   | ReferencesSlice
   | MediaAndTextSlice
   | TextContentSlice;
@@ -639,6 +641,24 @@ export interface MediaAndTextSliceDefaultPrimary {
   content: prismic.RichTextField;
 
   /**
+   * Knapp field in *MediaAndText → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: Valfri knapp
+   * - **API ID Path**: media_and_text.default.primary.button
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  button: prismic.Repeatable<
+    prismic.LinkField<
+      string,
+      string,
+      unknown,
+      prismic.FieldState,
+      "Primary" | "Secondary" | "CTA"
+    >
+  >;
+
+  /**
    * Fixed image field in *MediaAndText → Default → Primary*
    *
    * - **Field Type**: Boolean
@@ -686,6 +706,24 @@ export interface MediaAndTextSliceImageToTheRightPrimary {
    * - **Documentation**: https://prismic.io/docs/fields/rich-text
    */
   content: prismic.RichTextField;
+
+  /**
+   * Knapp field in *MediaAndText → Image to the right → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: Valfri knapp
+   * - **API ID Path**: media_and_text.imageToTheRight.primary.button
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  button: prismic.Repeatable<
+    prismic.LinkField<
+      string,
+      string,
+      unknown,
+      prismic.FieldState,
+      "Primary" | "Secondary" | "CTA"
+    >
+  >;
 }
 
 /**
@@ -702,11 +740,50 @@ export type MediaAndTextSliceImageToTheRight = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *MediaAndText → Preview → Primary*
+ */
+export interface MediaAndTextSlicePreviewPrimary {
+  /**
+   * Image or Video field in *MediaAndText → Preview → Primary*
+   *
+   * - **Field Type**: Link to Media
+   * - **Placeholder**: *None*
+   * - **API ID Path**: media_and_text.preview.primary.media
+   * - **Documentation**: https://prismic.io/docs/fields/link-to-media
+   */
+  media: prismic.LinkToMediaField<prismic.FieldState, never>;
+
+  /**
+   * Content field in *MediaAndText → Preview → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: media_and_text.preview.primary.content
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  content: prismic.RichTextField;
+}
+
+/**
+ * Preview variation for MediaAndText Slice
+ *
+ * - **API ID**: `preview`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type MediaAndTextSlicePreview = prismic.SharedSliceVariation<
+  "preview",
+  Simplify<MediaAndTextSlicePreviewPrimary>,
+  never
+>;
+
+/**
  * Slice variation for *MediaAndText*
  */
 type MediaAndTextSliceVariation =
   | MediaAndTextSliceDefault
-  | MediaAndTextSliceImageToTheRight;
+  | MediaAndTextSliceImageToTheRight
+  | MediaAndTextSlicePreview;
 
 /**
  * MediaAndText Shared Slice
@@ -769,16 +846,6 @@ export interface ReferencesSlicePreviewPrimaryReferenceItem {
  */
 export interface ReferencesSliceDefaultPrimary {
   /**
-   * Heading field in *ReferenceList → Default → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: references.default.primary.heading
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  heading: prismic.RichTextField;
-
-  /**
    * Reference field in *ReferenceList → Default → Primary*
    *
    * - **Field Type**: Group
@@ -808,16 +875,6 @@ export type ReferencesSliceDefault = prismic.SharedSliceVariation<
  * Primary content in *ReferenceList → Preview → Primary*
  */
 export interface ReferencesSlicePreviewPrimary {
-  /**
-   * Heading field in *ReferenceList → Preview → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: references.preview.primary.heading
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  heading: prismic.RichTextField;
-
   /**
    * Reference field in *ReferenceList → Preview → Primary*
    *
@@ -874,6 +931,24 @@ export interface TextContentSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/fields/rich-text
    */
   content: prismic.RichTextField;
+
+  /**
+   * Knapp field in *TextContent → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: Valfri knapp
+   * - **API ID Path**: text_content.default.primary.button
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  button: prismic.Repeatable<
+    prismic.LinkField<
+      string,
+      string,
+      unknown,
+      prismic.FieldState,
+      "Primary" | "Secondary" | "CTA"
+    >
+  >;
 }
 
 /**
@@ -904,6 +979,96 @@ type TextContentSliceVariation = TextContentSliceDefault;
 export type TextContentSlice = prismic.SharedSlice<
   "text_content",
   TextContentSliceVariation
+>;
+
+/**
+ * Item in *Timeline → Default → Primary → Year*
+ */
+export interface TimelineSliceDefaultPrimaryYearItem {
+  /**
+   * Årtal field in *Timeline → Default → Primary → Year*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: timeline.default.primary.year[].year
+   * - **Documentation**: https://prismic.io/docs/fields/number
+   */
+  year: prismic.NumberField;
+
+  /**
+   * Titel field in *Timeline → Default → Primary → Year*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: timeline.default.primary.year[].title
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Text field in *Timeline → Default → Primary → Year*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Valfri text
+   * - **API ID Path**: timeline.default.primary.year[].content
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  content: prismic.RichTextField;
+
+  /**
+   * Valfri bild field in *Timeline → Default → Primary → Year*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: timeline.default.primary.year[].image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  image: prismic.ImageField<"small">;
+}
+
+/**
+ * Primary content in *Timeline → Default → Primary*
+ */
+export interface TimelineSliceDefaultPrimary {
+  /**
+   * Year field in *Timeline → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: timeline.default.primary.year[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  year: prismic.GroupField<Simplify<TimelineSliceDefaultPrimaryYearItem>>;
+}
+
+/**
+ * Default variation for Timeline Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type TimelineSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<TimelineSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Timeline*
+ */
+type TimelineSliceVariation = TimelineSliceDefault;
+
+/**
+ * Timeline Shared Slice
+ *
+ * - **API ID**: `timeline`
+ * - **Description**: Timeline
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type TimelineSlice = prismic.SharedSlice<
+  "timeline",
+  TimelineSliceVariation
 >;
 
 /**
@@ -1355,9 +1520,11 @@ declare module "@prismicio/client" {
       MediaAndTextSlice,
       MediaAndTextSliceDefaultPrimary,
       MediaAndTextSliceImageToTheRightPrimary,
+      MediaAndTextSlicePreviewPrimary,
       MediaAndTextSliceVariation,
       MediaAndTextSliceDefault,
       MediaAndTextSliceImageToTheRight,
+      MediaAndTextSlicePreview,
       ReferencesSlice,
       ReferencesSliceDefaultPrimaryReferenceItem,
       ReferencesSliceDefaultPrimary,
@@ -1370,6 +1537,11 @@ declare module "@prismicio/client" {
       TextContentSliceDefaultPrimary,
       TextContentSliceVariation,
       TextContentSliceDefault,
+      TimelineSlice,
+      TimelineSliceDefaultPrimaryYearItem,
+      TimelineSliceDefaultPrimary,
+      TimelineSliceVariation,
+      TimelineSliceDefault,
       TextSlice,
       TextSliceDefaultPrimary,
       TextSliceTextareaPrimary,

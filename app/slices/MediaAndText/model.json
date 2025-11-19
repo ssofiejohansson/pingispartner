@@ -26,7 +26,23 @@
             "label": "Content",
             "placeholder": "",
             "allowTargetBlank": true,
-            "multi": "paragraph,heading2,heading3,heading4,heading5,heading6,strong,em,list-item,o-list-item"
+            "multi": "paragraph,heading2,heading3,heading4,heading5,heading6,strong,em,list-item,o-list-item,hyperlink,image,embed"
+          }
+        },
+        "button": {
+          "type": "Link",
+          "config": {
+            "label": "Knapp",
+            "placeholder": "Valfri knapp",
+            "select": null,
+            "allowTargetBlank": true,
+            "allowText": true,
+            "repeat": true,
+            "variants": [
+              "Primary",
+              "Secondary",
+              "CTA"
+            ]
           }
         },
         "fixed_image": {
@@ -63,7 +79,51 @@
             "label": "Content",
             "placeholder": "",
             "allowTargetBlank": true,
-            "multi": "paragraph,heading2,heading3,heading4,heading5,heading6,strong,em,list-item,o-list-item"
+            "multi": "paragraph,heading2,heading3,heading4,heading5,heading6,strong,em,list-item,o-list-item,image,hyperlink,embed"
+          }
+        },
+        "button": {
+          "type": "Link",
+          "config": {
+            "label": "Knapp",
+            "placeholder": "Valfri knapp",
+            "select": null,
+            "allowTargetBlank": true,
+            "allowText": true,
+            "repeat": true,
+            "variants": [
+              "Primary",
+              "Secondary",
+              "CTA"
+            ]
+          }
+        }
+      },
+      "items": {}
+    },
+    {
+      "id": "preview",
+      "name": "Preview",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "media": {
+          "type": "Link",
+          "config": {
+            "label": "Image or Video",
+            "placeholder": "",
+            "select": "media"
+          }
+        },
+        "content": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Content",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,heading2,heading3,heading4,heading5,heading6,strong,em,list-item,o-list-item,image,hyperlink,embed"
           }
         }
       },
