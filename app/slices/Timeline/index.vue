@@ -5,13 +5,15 @@
     class="my-12 lg:my-24 xl:my-32"
   >
     <div class="container">
-      {{ slice }}
-
-      <div class="flex gap-2 flex-wrap">
+        <!-- timeline line -->
+      <div class="w-px h-44 bg-gray-300 mx-4"></div>
+      <div class="flex flex-col gap-2 items-center">
+      
+        
         <div
           v-for="(item, i) in slice.primary.year"
           :key="i"
-          class="bg-white p-6 shadow-md flex flex-col gap-4"
+          class="p-2 min-w-[100px] max-w-[200px] bg-white flex flex-col flex-wrap justify-center"
         >
           <div class="font-bold">{{ item.year }}</div>
           <div class="">{{ item.title }}</div>

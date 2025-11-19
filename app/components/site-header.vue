@@ -1,10 +1,10 @@
 <template>
-  <div
-    :class="[
-      'sticky top-0 w-full flex flex-col gap-2 justify-center px-5 lg:px-8 items-center pt-8 z-50 transition-colors duration-300',
+   <div class="w-full flex justify-between p-5 lg:px-8 items-center z-50 transition-colors duration-300"> 
+  <!-- :class="[
+      'w-full flex flex-col gap-2 justify-center px-5 lg:px-8 items-center pt-8 z-50 transition-colors duration-300',
       scrolled && isDesktop ? 'bg-light/40 backdrop-blur-lg ' : ''
-    ]"
-  >
+    ]" -->
+  
     <div class="flex items-center">
       <nuxt-link :to="home">
         <prismic-image :field="settings?.data?.logo" class="h-16 w-auto block" />
@@ -33,6 +33,7 @@
         v-if="mobileMenuOpen"
         class="fixed inset-0 bg-light/60 backdrop-blur-lg flex flex-col justify-center items-center z-50 lg:hidden"
       >
+         <prismic-image :field="settings?.data?.logo_white" class="h-16 w-auto block" />
         <SiteNavigation @click.native="mobileMenuOpen = false" />
       </div>
     </transition>
