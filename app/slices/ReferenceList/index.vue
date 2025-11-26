@@ -9,7 +9,7 @@
 
       <!-- Sortbutton by select: company/private or all as default -->
       <div
-        class="flex items-center justify-start gap-3 my-6 "
+        class="flex items-center justify-start gap-3 my-6"
         v-if="slice.variation === 'default'"
       >
         <Button
@@ -18,6 +18,7 @@
             { label: 'Företag', value: 'company', variant: 'Secondary' },
             { label: 'Privat', value: 'private', variant: 'Secondary' },
           ]"
+          :class="'cursor-pointer'"
           :key="i"
           :btn="{ text: option.label, variant: option.variant }"
           @click="filter = option.value"
@@ -57,8 +58,8 @@
       </div>
     </div>
 
-    <!-- preview slider -->
-    <div v-if="slice.variation === 'preview'" class="py-10 mx-2">
+    <!-- variation: preview slider -->
+    <div v-if="slice.variation === 'preview'" class="mx-2">
       <Slider :slides="slice.primary.reference" />
     </div>
   </section>

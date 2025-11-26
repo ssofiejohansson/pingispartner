@@ -26,7 +26,7 @@ const variantClasses = computed(() => {
     case "Primary":
       return "bg-primary text-white hover:bg-primaryDark";
     case "Secondary":
-      return "bg-transparent text-primaryDark border border-primaryDark hover:";
+      return "bg-transparent text-primaryDark border border-primaryDark hover:bg-white";
     case "CTA":
       return "bg-primaryDark text-white hover:bg-primary";
     default:

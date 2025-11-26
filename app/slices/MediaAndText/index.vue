@@ -67,13 +67,14 @@
           </div>
         </div>
       </div>
+    </div>
 
-      <!-- preview  -->
-
-      <div
-        v-if="slice.variation === 'preview'"
-        class="container flex flex-col mb-3 bg-white"
-      >
+    <!-- preview -->
+    <div
+      v-if="slice.variation === 'preview'"
+      class="container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+    >
+      <div class="flex flex-col bg-white p-4 mb-2">
         <prismic-rich-text :field="slice.primary.content" />
       </div>
     </div>
