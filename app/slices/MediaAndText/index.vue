@@ -5,13 +5,11 @@
     class=""
   >
     <div
-      class="wide"
+      class="container"
       :class="[slice.primary.fixed_image ? 'container mb-20' : '']"
     >
-      <!-- {{ slice }} -->
-
       <div
-        class="flex flex-col lg:flex-row bg-white w-full justify-center"
+        class="flex flex-col lg:flex-row w-full justify-center"
         :class="[slice.primary.fixed_image ? 'items-start' : 'items-center']"
       >
         <!-- MEDIA -->
@@ -46,11 +44,10 @@
 
         <!-- CONTENT -->
         <div
-          v-if="slice.variation !== 'preview'"
-          class="w-full lg:w-1/2 p-6 rich-text"
+          class="w-full lg:w-1/2 py-6 lg:py-0 lg:px-6 rich-text"
           :class="[
             slice.variation === 'default' ? 'lg:order-2' : 'lg:order-1',
-            slice.primary.fixed_image ? 'lg:w-2/3 p-10' : '',
+            slice.primary.fixed_image ? 'lg:w-2/3' : '',
           ]"
         >
           <prismic-rich-text :field="slice.primary.content" />
@@ -66,16 +63,6 @@
             />
           </div>
         </div>
-      </div>
-    </div>
-
-    <!-- preview -->
-    <div
-      v-if="slice.variation === 'preview'"
-      class="container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
-    >
-      <div class="flex flex-col bg-white p-4 mb-2">
-        <prismic-rich-text :field="slice.primary.content" />
       </div>
     </div>
   </section>

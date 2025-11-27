@@ -2,7 +2,7 @@
   <section
     :data-slice-type="slice.slice_type"
     :data-slice-variation="slice.variation"
-    class="my-12 lg:my-24 xl:my-32"
+    class=""
   >
     <!-- {{ slice }} -->
     <div class="container">
@@ -59,7 +59,7 @@
     </div>
 
     <!-- variation: preview slider -->
-    <div v-if="slice.variation === 'preview'" class="mx-2">
+    <div v-if="slice.variation === 'preview'" class="mx-2 ">
       <Slider :slides="slice.primary.reference" />
     </div>
   </section>

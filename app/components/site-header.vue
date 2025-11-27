@@ -1,45 +1,40 @@
 <template>
-   <div class="w-full flex justify-between p-5 lg:px-8 items-center z-50 transition-colors duration-300"> 
-  <!-- :class="[
-      'w-full flex flex-col gap-2 justify-center px-5 lg:px-8 items-center pt-8 z-50 transition-colors duration-300',
-      scrolled && isDesktop ? 'bg-light/40 backdrop-blur-lg ' : ''
-    ]" -->
-  
+  <div class="w-full flex justify-between items-center p-5 lg:px-8 z-50 bg-transparent">
+    <!-- Logo Left -->
     <div class="flex items-center">
       <nuxt-link :to="home">
         <prismic-image :field="settings?.data?.logo" class="h-16 w-auto block" />
       </nuxt-link>
     </div>
 
-    <!-- Desktop Navigation (only visible on large screens) -->
-    <div class="hidden lg:block">
+    <!-- Desktop Nav Right -->
+    <div class="hidden lg:flex">
       <SiteNavigation />
     </div>
 
-    <!-- Mobile/Tablet Menu Button -->
-    <div>
+    <!-- Mobile Menu Button Right -->
+    <div class="lg:hidden">
       <button
         @click="mobileMenuOpen = !mobileMenuOpen"
-        class="lg:hidden w-14 h-14 z-[60] relative"
+        class="w-14 h-14 relative z-[60]"
       >
         <Icon v-if="mobileMenuOpen" name="x" class="w-14 h-14" />
         <Icon v-else name="hamburger" class="w-14 h-14" />
       </button>
     </div>
 
-    <!-- Full-Screen Mobile/Tablet Menu -->
+    <!-- Mobile Menu Fullscreen -->
     <transition name="fade">
       <div
         v-if="mobileMenuOpen"
-        class="fixed inset-0 bg-light/60 backdrop-blur-lg flex flex-col justify-center items-center z-50 lg:hidden"
+        class="fixed inset-0 bg-light/20 backdrop-blur-lg flex flex-col justify-center items-center z-50 lg:hidden"
       >
-         <prismic-image :field="settings?.data?.logo_white" class="h-16 w-auto block" />
         <SiteNavigation @click.native="mobileMenuOpen = false" />
       </div>
     </transition>
-
   </div>
 </template>
+
 
 <script setup>
 const home = useHome()

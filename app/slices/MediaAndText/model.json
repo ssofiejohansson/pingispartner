@@ -100,34 +100,6 @@
         }
       },
       "items": {}
-    },
-    {
-      "id": "preview",
-      "name": "Preview",
-      "docURL": "...",
-      "version": "initial",
-      "description": "Default",
-      "imageUrl": "",
-      "primary": {
-        "media": {
-          "type": "Link",
-          "config": {
-            "label": "Image or Video",
-            "placeholder": "",
-            "select": "media"
-          }
-        },
-        "content": {
-          "type": "StructuredText",
-          "config": {
-            "label": "Content",
-            "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "paragraph,heading2,heading3,heading4,heading5,heading6,strong,em,list-item,o-list-item,image,hyperlink,embed"
-          }
-        }
-      },
-      "items": {}
     }
   ]
 }

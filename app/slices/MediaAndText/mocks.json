@@ -81,48 +81,13 @@
 				"type": "Link",
 				"value": [
 					{
-						"__TYPE__": "LinkContent",
 						"key": "294953c8-4ec0-4f0a-b324-de5dc616763c",
+						"__TYPE__": "LinkContent",
 						"value": {
 							"__TYPE__": "ExternalLink",
 							"url": "https://prismic.io",
 							"text": "cattle",
 							"variant": "Primary"
-						}
-					}
-				]
-			}
-		},
-		"items": [
-			{
-				"__TYPE__": "GroupItemContent",
-				"value": []
-			}
-		]
-	},
-	{
-		"__TYPE__": "SharedSliceContent",
-		"variation": "preview",
-		"primary": {
-			"media": {
-				"key": "014ff277-e8c7-4b84-a974-cf053ab38490",
-				"__TYPE__": "LinkContent",
-				"value": {
-					"__TYPE__": "FileLink",
-					"id": "mock_Media_link",
-					"kind": "file",
-					"name": "mock_name",
-					"url": "https://source.unsplash.com/daily",
-					"size": "0"
-				}
-			},
-			"content": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "paragraph",
-						"content": {
-							"text": "Nisi sint minim anim incididunt aliquip sint fugiat ut adipisicing officia. Consequat consequat in reprehenderit ullamco id proident dolore nisi qui irure do. Ut cupidatat enim magna incididunt aliquip aute officia minim."
 						}
 					}
 				]

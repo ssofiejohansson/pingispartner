@@ -2,7 +2,7 @@
   <section
     :data-slice-type="slice.slice_type"
     :data-slice-variation="slice.variation"
-    class="my-12 lg:my-24 xl:my-32"
+    class="my-24"
   >
     <div class="container relative">
 
