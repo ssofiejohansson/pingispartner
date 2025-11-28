@@ -2,11 +2,11 @@
 <section
   :data-slice-type="slice.slice_type"
   :data-slice-variation="slice.variation"
-  class="my-12"
+  class="wide xl:container px-6 my-12 lg:my-16"
 >
   <div
-    class="container rich-text"
-    :class="slice.variation === 'center' ? 'text-center mx-auto max-w-lg' : ''"
+    class=" rich-text max-w-xl"
+    :class="slice.variation === 'center' ? 'text-center mx-auto' : ''"
   >
     <!-- Text -->
     <prismic-rich-text

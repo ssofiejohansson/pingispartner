@@ -38,14 +38,14 @@
           v-if="slice.variation === 'default'"
           v-for="ref in filteredReferences"
           :key="ref.item.id"
-          class="bg-white flex flex-col xl:flex-row gap-6 to-md:mb-4 xl:items-center justify-center p-6 lg:p-10 shadow-md"
+          class="bg-white flex flex-col  gap-6 to-md:mb-4 justify-center p-6 lg:p-10 shadow-md"
         >
           <!-- Image -->
           <img
             v-if="ref.item.data.image"
             :src="ref.item.data.image.url"
             :alt="ref.item.data.image.alt || ''"
-            class="w-28 h-28 xl:w-48 xl:h-48 rounded-full object-cover"
+            class="w-28 h-28 rounded-full object-cover object-top shrink-0 "
           />
 
           <!-- Text content -->

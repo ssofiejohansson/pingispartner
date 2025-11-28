@@ -723,14 +723,14 @@ export type CustomerLogosSlice = prismic.SharedSlice<
  */
 export interface HeroSliceDefaultPrimary {
   /**
-   * Hero Image field in *Hero → Default → Primary*
+   * Image or video field in *Hero → Default → Primary*
    *
-   * - **Field Type**: Image
+   * - **Field Type**: Link to Media
    * - **Placeholder**: *None*
    * - **API ID Path**: hero.default.primary.hero_img
-   * - **Documentation**: https://prismic.io/docs/fields/image
+   * - **Documentation**: https://prismic.io/docs/fields/link-to-media
    */
-  hero_img: prismic.ImageField<never>;
+  hero_img: prismic.LinkToMediaField<prismic.FieldState, never>;
 
   /**
    * Hero Text field in *Hero → Default → Primary*

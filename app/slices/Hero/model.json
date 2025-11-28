@@ -13,11 +13,12 @@
       "imageUrl": "",
       "primary": {
         "hero_img": {
-          "type": "Image",
+          "type": "Link",
           "config": {
-            "label": "Hero Image",
-            "constraint": {},
-            "thumbnails": []
+            "label": "Image or video",
+            "placeholder": "",
+            "select": "media",
+            "allowText": false
           }
         },
         "hero_text": {

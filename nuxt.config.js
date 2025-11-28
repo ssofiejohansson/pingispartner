@@ -59,7 +59,10 @@ export default defineNuxtConfig({
     discoverVideos: false,
   },
 
-  nitro: { prerender: { crawlLinks: false } },
+ nitro: {
+  preset: "netlify",     // ← REQUIRED for Netlify
+  prerender: { crawlLinks: false }
+},
 
   hooks: {
     async "nitro:config"(nitroConfig) {

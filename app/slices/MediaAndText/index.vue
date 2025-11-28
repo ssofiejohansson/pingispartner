@@ -5,7 +5,7 @@
     class=""
   >
     <div
-      class="container"
+      class="wide xl:container"
       :class="[slice.primary.fixed_image ? 'container mb-20' : '']"
     >
       <div
@@ -15,7 +15,7 @@
         <!-- MEDIA -->
         <div
           v-if="slice.primary.media && slice.primary.media.url"
-          class="flex justify-center w-full to-lg:max-h-[300px] lg:w-1/2 flex-shrink-0"
+          class="flex justify-center w-full to-lg:max-h-[4y-400px] lg:w-1/2 flex-shrink-0"
           :class="[
             slice.variation === 'default' ? 'lg:order-1' : 'lg:order-2',
             slice.primary.fixed_image ? 'lg:w-1/3 lg:sticky lg:top-40' : '',
@@ -44,7 +44,7 @@
 
         <!-- CONTENT -->
         <div
-          class="w-full lg:w-1/2 py-6 lg:py-0 lg:px-6 rich-text"
+          class="w-full lg:w-1/2 py-6 lg:py-4 px-6  rich-text"
           :class="[
             slice.variation === 'default' ? 'lg:order-2' : 'lg:order-1',
             slice.primary.fixed_image ? 'lg:w-2/3' : '',
