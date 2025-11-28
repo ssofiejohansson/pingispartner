@@ -5,11 +5,11 @@
     class=""
   >
     <div
-      class="wide xl:container"
+      class="wide md:container"
       :class="[slice.primary.fixed_image ? 'container mb-20' : '']"
     >
       <div
-        class="flex flex-col lg:flex-row w-full justify-center"
+        class="flex flex-col lg:flex-row gap-6 w-full justify-center"
         :class="[slice.primary.fixed_image ? 'items-start' : 'items-center']"
       >
         <!-- MEDIA -->

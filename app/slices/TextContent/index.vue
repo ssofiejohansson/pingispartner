@@ -6,7 +6,7 @@
 >
   <div
     class=" rich-text max-w-xl"
-    :class="slice.variation === 'center' ? 'text-center mx-auto' : ''"
+    :class="slice.variation === 'center' ? 'sm:text-center sm:mx-auto' : ''"
   >
     <!-- Text -->
     <prismic-rich-text
@@ -18,7 +18,7 @@
     <div
       v-if="slice.primary.button?.some((btn) => btn.text || btn.url)"
       class="flex flex-wrap gap-4 my-6"
-      :class="slice.variation === 'center' ? 'justify-center' : 'justify-start'"
+      :class="slice.variation === 'center' ? 'sm:justify-center' : 'justify-start'"
     >
       <Button v-for="(btn, i) in slice.primary.button" :key="i" :btn="btn" />
     </div>
