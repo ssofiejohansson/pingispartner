@@ -5,7 +5,7 @@
   class="wide xl:container px-6 my-12 lg:my-16"
 >
   <div
-    class=" rich-text max-w-xl"
+    class=" rich-text max-w-2xl"
     :class="slice.variation === 'center' ? 'sm:text-center sm:mx-auto' : ''"
   >
     <!-- Text -->

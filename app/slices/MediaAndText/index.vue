@@ -5,7 +5,7 @@
     class=""
   >
     <div
-      class="wide md:container"
+      class="wide bg-white"
       :class="[slice.primary.fixed_image ? 'container mb-20' : '']"
     >
       <div
@@ -44,7 +44,7 @@
 
         <!-- CONTENT -->
         <div
-          class="w-full lg:w-1/2 py-6 lg:py-4 px-6  rich-text"
+          class="w-full lg:w-1/2 p-8 rich-text"
           :class="[
             slice.variation === 'default' ? 'lg:order-2' : 'lg:order-1',
             slice.primary.fixed_image ? 'lg:w-2/3' : '',

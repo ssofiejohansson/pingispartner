@@ -1077,24 +1077,7 @@ export type MediaAndTextSlice = prismic.SharedSlice<
 /**
  * Item in *ReferenceList → Default → Primary → Reference*
  */
-export interface ReferencesSliceDefaultPrimaryReferenceItem {
-  /**
-   * item field in *ReferenceList → Default → Primary → Reference*
-   *
-   * - **Field Type**: Content Relationship
-   * - **Placeholder**: *None*
-   * - **API ID Path**: references.default.primary.reference[].item
-   * - **Documentation**: https://prismic.io/docs/fields/content-relationship
-   */
-  item: ContentRelationshipFieldWithData<
-    [
-      {
-        id: "reference";
-        fields: ["image", "name", "text", "category", "title"];
-      },
-    ]
-  >;
-}
+export interface ReferencesSliceDefaultPrimaryReferenceItem {}
 
 /**
  * Item in *ReferenceList → Preview → Primary → Reference*

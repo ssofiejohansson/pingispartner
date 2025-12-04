@@ -17,28 +17,7 @@
           "config": {
             "label": "Reference",
             "repeat": true,
-            "fields": {
-              "item": {
-                "type": "Link",
-                "config": {
-                  "label": "item",
-                  "select": "document",
-                  "repeat": false,
-                  "customtypes": [
-                    {
-                      "id": "reference",
-                      "fields": [
-                        "image",
-                        "name",
-                        "text",
-                        "category",
-                        "title"
-                      ]
-                    }
-                  ]
-                }
-              }
-            }
+            "fields": {}
           }
         }
       },

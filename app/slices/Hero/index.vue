@@ -2,7 +2,7 @@
   <section
     :data-slice-type="slice.slice_type"
     :data-slice-variation="slice.variation"
-    class="relative w-full h-[60vh] xl:h-[80vh] flex items-center justify-center overflow-hidden mb-12"
+    class="relative w-full p-12 flex items-center justify-center overflow-hidden mb-12"
   >
     <!-- Background Media (video or image) -->
     <div class="absolute inset-0 w-full h-full overflow-hidden">
@@ -31,7 +31,7 @@
     </div>
 
     <!-- Optional overlay -->
-    <div class="absolute inset-0 bg-black/20"></div>
+    <!-- <div class="absolute inset-0 bg-black/20"></div> -->
 
     <!-- Hero Text -->
     <div class="relative z-10 text-center px-4 md:px-0 rich-text">

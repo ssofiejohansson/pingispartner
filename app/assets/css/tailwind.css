@@ -41,13 +41,13 @@
   }
 
   .rich-text h1 {
-    @apply text-3xl;
+    @apply text-4xl;
   }
   .rich-text h2 {
-    @apply text-xl;
+    @apply text-3xl;
   }
   .rich-text h3 {
-    @apply text-lg;
+    @apply text-xl;
   }
   .rich-text h4 {
     @apply text-lg;
@@ -62,7 +62,7 @@
   .rich-text p,
   .rich-text ul,
   .rich-text ol {
-    @apply text-sm md:text-base my-4 last:mb-0 first:mt-0 leading-relaxed ;
+    @apply text-sm sm:text-base my-4 last:mb-0 first:mt-0 leading-relaxed ;
   }
 
    .rich-text ul {

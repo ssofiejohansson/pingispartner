@@ -7,10 +7,9 @@
     :navigation="true"
     :breakpoints="{
       400: { slidesPerView: 1 },
-      600: { slidesPerView: 2 },
-      720: { slidesPerView: 3 },
-      1024: { slidesPerView: 3 },
-      1480: { slidesPerView: 5 },
+      720: { slidesPerView: 2 },
+      1224: { slidesPerView: 3 },
+      1480: { slidesPerView: 4 },
     }"
   >
     <swiper-slide

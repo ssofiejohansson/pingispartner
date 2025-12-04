@@ -8,19 +8,7 @@
 				"value": [
 					{
 						"__TYPE__": "GroupItemContent",
-						"value": [
-							[
-								"item",
-								{
-									"key": "d5211c38-28da-4f3d-9d5d-4b3fdfc1f7bf",
-									"__TYPE__": "LinkContent",
-									"value": {
-										"__TYPE__": "DocumentLink",
-										"id": "mock_document_id"
-									}
-								}
-							]
-						]
+						"value": []
 					}
 				]
 			}
