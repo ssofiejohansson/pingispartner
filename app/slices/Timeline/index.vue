@@ -7,17 +7,18 @@
     <div class="container relative">
 
       <div
-        class="absolute -top-16 left-1 md:left-1/2 md:-translate-x-1/2 text-primaryDark font-bold text-3xl md:text-3xl"
+        class="absolute -top-20 left-4 md:left-1/2 md:-translate-x-1/2 text-primaryDark font-bold text-3xl "
       >
-        1961
+            <span class="border-b-8 border-primaryDark mb-4 z-100"> 1961 </span>
       </div>
+      
       <!-- Center timeline line -->
       <div
-        class="absolute top-0 h-full w-[2px] bg-gray-300 left-4 md:left-1/2 md:-translate-x-1/2"
+        class="absolute top-0 h-full w-[2px] bg-primaryDark left-4 md:left-1/2 md:-translate-x-1/2"
       />
 
       <!-- Timeline items -->
-      <div class="flex flex-col gap-12 relative z-10">
+      <div class="flex flex-col gap-12 pt-6 relative z-10">
 
         <div
           v-for="(item, i) in slice.primary.year"
@@ -29,8 +30,9 @@
         >
           <!-- top line -->
           <div
-            class="absolute w-8 h-1 bg-primaryDark -left-4 md:left-1/2 md:-translate-x-1/2"
-          />
+            class="absolute w-6 h-1 bg-primaryDark -left-4 md:left-1/2 md:-translate-x-1/2"
+          > 
+        </div>
 
           <!-- text -->
           <div
@@ -67,5 +69,7 @@
 </template>
 
 <script setup>
+import Icon from '~/components/icon.vue';
+
 defineProps(["slice", "index", "slices", "context"]);
 </script>

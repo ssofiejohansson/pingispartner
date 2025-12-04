@@ -43,11 +43,11 @@
   .rich-text h1 {
     @apply text-4xl;
   }
-  .rich-text h2 {
-    @apply text-xl md:text-3xl border-b-4 border-primaryDark py-4;
-  }
+ .rich-text h2 {
+  @apply text-2xl md:text-3xl relative before:content-[''] before:block before:w-12 before:h-2 before:bg-accent before:mb-4 mb-6;
+}
   h2 {
-    @apply text-2xl;
+    @apply lg:text-xl text-lg ;
   }
 
   .rich-text h3 {

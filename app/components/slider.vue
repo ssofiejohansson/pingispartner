@@ -1,47 +1,49 @@
 <template>
-  <swiper
-    :space-between="20"
-    :loop="true"
-    :autoplay="{ delay: 1500, pauseOnMouseEnter: true }"
-    :pagination="{ clickable: true }"
-    :navigation="true"
-    :breakpoints="{
-      400: { slidesPerView: 1 },
-      720: { slidesPerView: 2 },
-      1224: { slidesPerView: 3 },
-      1480: { slidesPerView: 4 },
-    }"
-  >
-    <swiper-slide
-      v-for="(ref, i) in slides"
-      :key="ref.item.id"
-      class="p-4 bg-white shadow-md"
+  <div class="">
+    <swiper
+      :space-between="20"
+      :loop="true"
+      :autoplay="{ delay: 1500, pauseOnMouseEnter: true }"
+      :pagination="{ clickable: true }"
+      :navigation="true"
+      :breakpoints="{
+        400: { slidesPerView: 1 },
+        720: { slidesPerView: 2 },
+        1224: { slidesPerView: 3 },
+        1580: { slidesPerView: 4 },
+      }"
     >
-      <div class="flex flex-col gap-1 cursor-e-resize ">
-        <img
-          v-if="ref.item.data.image"
-          :src="ref.item.data.image.url"
-          :alt="ref.item.data.image.alt || ''"
-          class="w-14 h-14 rounded-full object-cover object-top shrink-0"
-        />
-        <prismic-rich-text :field="ref.item.data.name" />
-        <prismic-rich-text :field="ref.item.data.title" />
+      <swiper-slide
+        v-for="(ref, i) in slides"
+        :key="ref.item.id"
+        class="p-6 bg-white rounded-2xl shadow-md border-t-4 border-t-primaryDark"
+      >
+        <div class="flex flex-col gap-1">
+          <img
+            v-if="ref.item.data.image"
+            :src="ref.item.data.image.url"
+            :alt="ref.item.data.image.alt || ''"
+            class="w-14 h-14 rounded-full object-cover object-top shrink-0"
+          />
+          <prismic-rich-text :field="ref.item.data.name" />
+          <prismic-rich-text :field="ref.item.data.title" />
 
-        <p>
-          {{ reviewPreview(i) }}
-          <button
-            v-if="reviewIsLong(i)"
-            @click="toggle(i)"
-            class="text-primaryDark hover:underline text-xs text-left"
-          >
-            {{ expanded[i] ? " Visa mindre" : " Visa mer" }}
-          </button>
-        </p>
+          <p>
+            {{ reviewPreview(i) }}
+            <button
+              v-if="reviewIsLong(i)"
+              @click="toggle(i)"
+              class="text-primaryDark hover:underline text-xs text-left"
+            >
+              {{ expanded[i] ? " Visa mindre" : " Visa mer" }}
+            </button>
+          </p>
 
-        <!-- toggle text -->
-      </div>
-    </swiper-slide>
-  </swiper>
+          <!-- toggle text -->
+        </div>
+      </swiper-slide>
+    </swiper>
+  </div>
 </template>
 
 <script setup>

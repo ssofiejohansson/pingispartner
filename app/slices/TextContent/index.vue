@@ -2,7 +2,7 @@
 <section
   :data-slice-type="slice.slice_type"
   :data-slice-variation="slice.variation"
-  class="wide xl:container px-6 my-16 lg:my-24"
+  class="wide 2xl:container px-6 my-16 lg:my-24"
 >
   <div
     class=" rich-text max-w-2xl"

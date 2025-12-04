@@ -24,12 +24,12 @@ const variantClasses = computed(() => {
 
   switch (props.btn.variant) {
     case "Primary":
-      return "bg-primaryDark border border-primaryDark  text-light shadow-md hover:bg-white hover:text-primaryDark transform hover:scale-105";
+      return "bg-primaryDark border border-primaryDark  text-light hover:bg-white hover:text-primaryDark transform hover:scale-105";
     case "Secondary":
-       return "bg-white text-primaryDark border border-primaryDark shadow-md hover:bg-primaryDark hover:text-light transform hover:scale-105 transition-all duration-300";
+       return "bg-white text-primaryDark border border-primaryDark hover:bg-primaryDark hover:text-light transform hover:scale-105 transition-all duration-300";
 
     case "CTA":
-     return "bg-accent text-white border border-accent shadow-md hover:bg-white hover:text-accent transform hover:scale-105";
+     return "bg-accent text-white border border-accent hover:bg-white hover:text-accent transform hover:scale-105";
 
     default:
       return "";
