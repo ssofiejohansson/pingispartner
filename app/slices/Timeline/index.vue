@@ -9,12 +9,12 @@
       <div
         class="absolute -top-20 left-4 md:left-1/2 md:-translate-x-1/2 text-primaryDark font-bold text-3xl "
       >
-            <span class="border-b-8 border-primaryDark mb-4 z-100"> 1961 </span>
+            <span class="border-b-8 border-primaryDark mb-4 z-100"> 1962 </span>
       </div>
       
       <!-- Center timeline line -->
       <div
-        class="absolute top-0 h-full w-[2px] bg-primaryDark left-4 md:left-1/2 md:-translate-x-1/2"
+        class="absolute -top-2 h-full w-[2px] bg-primaryDark left-4 md:left-1/2 md:-translate-x-1/2"
       />
 
       <!-- Timeline items -->

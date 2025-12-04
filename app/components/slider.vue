@@ -16,7 +16,7 @@
       <swiper-slide
         v-for="(ref, i) in slides"
         :key="ref.item.id"
-        class="p-6 bg-white rounded-2xl shadow-md border-t-4 border-t-primaryDark"
+        class="p-6 bg-white shadow-md "
       >
         <div class="flex flex-col gap-1">
           <img

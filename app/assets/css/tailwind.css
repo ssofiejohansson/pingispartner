@@ -28,7 +28,7 @@
   .rich-text h4,
   .rich-text h5,
   .rich-text h6 {
-    @apply mb-[0.35em] leading-none;
+    @apply mb-4 leading-none;
   }
 
   .rich-text p + h1,
@@ -37,14 +37,14 @@
   .rich-text p + h4,
   .rich-text p + h5,
   .rich-text p + h6 {
-    @apply mt-10;
+    @apply mt-4;
   }
 
   .rich-text h1 {
     @apply text-4xl;
   }
  .rich-text h2 {
-  @apply text-2xl md:text-3xl relative before:content-[''] before:block before:w-12 before:h-2 before:bg-accent before:mb-4 mb-6;
+  @apply text-xl md:text-2xl relative before:content-[''] before:block before:w-12 before:h-2 before:bg-accent before:mb-4 mb-2;
 }
   h2 {
     @apply lg:text-xl text-lg ;
@@ -66,25 +66,23 @@
   .rich-text p,
   .rich-text ul,
   .rich-text ol {
-    @apply text-sm sm:text-base my-4 last:mb-0 first:mt-0 leading-relaxed ;
+    @apply text-sm sm:text-base last:mb-0 first:mt-0 leading-relaxed;
   }
 
-   .rich-text ul {
-  list-style: none; 
-  padding-left: 1.25rem;
-  
+.rich-text ul {
+  list-style: none;
 }
 
 .rich-text ul li {
   position: relative;
-  padding-left: 2rem;
+  padding-left: 26px;
 }
 
 .rich-text ul li::before {
   content: '';
   position: absolute;
   left: 0;
-  top: 0.4rem;
+  top: 0.3rem;
   width: 1rem; 
   height: 1rem;
   background-image: url('/favicon.png');
@@ -92,9 +90,74 @@
   background-repeat: no-repeat;
 }
 
-  /* .rich-text a {
-    @apply text-primaryDark no-underline underline-offset-4 hover:underline;
-  } */
+/* numbered list */
+/* 
+.rich-text ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.rich-text ol li {
+  position: relative;
+  background: white;
+  padding: 1.5rem;
+  width: 240px;
+  height: 120px;
+  font-size: 22px;
+  font-weight: 700;
+  
+  z-index: 1;
+}
+.rich-text ol li::before {
+  content: '';
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  width: 60px;
+  height: 60px;
+  background-image: url('/favicon.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  
+  transform: rotate(20deg);
+  z-index: -1;
+} 
+*/
+
+.rich-text ol li {
+  position: relative;
+  padding-left: 0;  
+  padding: 8px;
+  font-size: 24px;
+  font-weight: 800;
+  z-index: 1; 
+}
+
+.rich-text ol li::before {
+  content: '';
+  position: absolute;
+  left: 10rem;
+  top: 0.5rem;
+  width: 3rem; 
+  height: 3rem;
+  background-image: url('/favicon.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+   transform: rotate(24deg);
+   z-index: -1; 
+}
+
+.rich-text ol li:hover::before {
+  transform: rotate(-2deg);
+} 
+
+
+  .rich-text a {
+    @apply no-underline;
+  }
 
   .form-input {
     @apply border border-dark w-full h-12 rounded-md px-5;

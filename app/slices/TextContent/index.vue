@@ -6,7 +6,7 @@
 >
   <div
     class=" rich-text max-w-2xl"
-    :class="slice.variation === 'center' ? 'sm:text-center sm:mx-auto' : ''"
+    :class="slice.variation === 'center' ? 'text-center sm:mx-auto' : ''"
   >
     <!-- Text -->
     <prismic-rich-text

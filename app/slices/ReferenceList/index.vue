@@ -47,7 +47,7 @@
           />
 
           <!-- Text content -->
-          <div class="lg:px-2 flex flex-col justify-center">
+          <div class="lg:px-2 flex flex-col justify-center rich-text">
             <prismic-rich-text :field="ref.data.name" />
             <prismic-rich-text :field="ref.data.title" />
             <prismic-rich-text :field="ref.data.text" />

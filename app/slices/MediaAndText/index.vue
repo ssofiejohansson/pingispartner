@@ -48,7 +48,7 @@
 
         <!-- CONTENT -->
         <div
-          class="w-full lg:w-1/2 max-w-3xl lg:px-8 px-4 py-6 rich-text"
+          class="w-full lg:w-1/2 max-w-3xl lg:px-8 px-4 py-8 rich-text"
           :class="[
             slice.variation === 'default' ? 'lg:order-2' : 'lg:order-1',
             slice.primary.fixed_image ? 'lg:w-2/3' : '',
