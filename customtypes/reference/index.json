@@ -32,7 +32,7 @@
           "label": "Name",
           "placeholder": "",
           "allowTargetBlank": true,
-          "single": "heading2"
+          "single": "heading3"
         }
       },
       "title": {
@@ -41,7 +41,7 @@
           "label": "Titel",
           "placeholder": "Företag eller roll",
           "allowTargetBlank": true,
-          "single": "heading3"
+          "single": "heading4"
         }
       },
       "text": {

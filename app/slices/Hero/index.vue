@@ -2,7 +2,7 @@
   <section
     :data-slice-type="slice.slice_type"
     :data-slice-variation="slice.variation"
-    class="relative w-full p-12 flex items-center justify-center overflow-hidden mb-12"
+    class="relative w-full lg:h-[40vh] h-[20vh]  flex items-center justify-center overflow-hidden mb-12"
   >
     <!-- Background Media (video or image) -->
     <div class="absolute inset-0 w-full h-full overflow-hidden">
@@ -24,7 +24,7 @@
       <!-- IMAGE -->
       <div
         v-else
-        class="absolute inset-0 bg-cover bg-center"
+        class="absolute inset-0 bg-cover bg-bottom"
         :style="{ backgroundImage: `url(${slice.primary.hero_img.url})` }"
       ></div>
 

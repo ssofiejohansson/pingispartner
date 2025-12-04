@@ -2,7 +2,7 @@
 <section
   :data-slice-type="slice.slice_type"
   :data-slice-variation="slice.variation"
-  class="wide xl:container px-6 my-12 lg:my-16"
+  class="wide xl:container px-6 my-16 lg:my-24"
 >
   <div
     class=" rich-text max-w-2xl"
@@ -18,7 +18,7 @@
     <div
       v-if="slice.primary.button?.some((btn) => btn.text || btn.url)"
       class="flex flex-wrap gap-4 my-6"
-      :class="slice.variation === 'center' ? 'sm:justify-center' : 'justify-start'"
+      :class="slice.variation === 'center' ? 'justify-center' : 'justify-center sm:justify-start'"
     >
       <Button v-for="(btn, i) in slice.primary.button" :key="i" :btn="btn" />
     </div>

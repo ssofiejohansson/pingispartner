@@ -12,7 +12,7 @@
       >
         <Button
           v-for="(option, i) in [
-            { label: 'Alla', value: 'all', variant: 'Primary' },
+            { label: 'Alla', value: 'all', variant: 'Secondary' },
             { label: 'Företag', value: 'company', variant: 'Secondary' },
             { label: 'Privat', value: 'private', variant: 'Secondary' },
           ]"
@@ -36,7 +36,7 @@
           v-if="slice.variation === 'default'"
           v-for="ref in filteredReferences"
           :key="ref.id"
-          class="bg-white flex flex-col gap-6 to-md:mb-4 justify-center px-4 py-6 shadow-md"
+          class="bg-white flex flex-col gap-6 to-md:mb-4 justify-start px-4 py-6 shadow-md"
         >
           <!-- Image -->
           <img
@@ -47,7 +47,7 @@
           />
 
           <!-- Text content -->
-          <div class="lg:px-2 flex flex-col justify-center rich-text">
+          <div class="lg:px-2 flex flex-col justify-center">
             <prismic-rich-text :field="ref.data.name" />
             <prismic-rich-text :field="ref.data.title" />
             <prismic-rich-text :field="ref.data.text" />
