@@ -8,7 +8,7 @@
         class="hover:text-primaryDark block text-xl lg:text-base text-center"
         @click.prevent="toggleDropdown"
         :class="[
-          'hover:text-primaryDark block py-2 text-xl lg:text-base text-center lg:text-left font-bold',
+          'hover:text-primaryDark block py-2 text-xl lg:text-base text-center lg:text-left ',
           isActive ? 'border-b-2 border-primaryDark text-primaryDark' : '',
         ]"
       >

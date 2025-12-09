@@ -2,10 +2,10 @@
   <section
     :data-slice-type="slice.slice_type"
     :data-slice-variation="slice.variation"
-    class="relative w-full lg:h-[40vh] h-[20vh]  flex items-center justify-center overflow-hidden mb-12"
+    class="relative w-full flex items-center justify-center overflow-hidden"
   >
     <!-- Background Media (video or image) -->
-    <div class="absolute inset-0 w-full h-full overflow-hidden">
+    <div class="absolute inset-0 z-0 w-full h-full overflow-hidden">
 
       <!-- VIDEO (mp4) -->
       <video
@@ -24,19 +24,30 @@
       <!-- IMAGE -->
       <div
         v-else
-        class="absolute inset-0 bg-cover bg-bottom"
+        class="absolute inset-0 bg-cover bg-center"
         :style="{ backgroundImage: `url(${slice.primary.hero_img.url})` }"
       ></div>
 
     </div>
 
-    <!-- Optional overlay -->
-    <!-- <div class="absolute inset-0 bg-black/20"></div> -->
-
     <!-- Hero Text -->
-    <div class="relative z-10 text-center px-4 md:px-0 rich-text">
-      <prismic-rich-text :field="slice.primary.hero_text" />
+   <div class="text-center max-w-3xl mx-auto px-6 my-12" >
+    <div class="">
+        <prismic-rich-text :field="slice.primary.heading" />
     </div>
+
+    <p class="text-lg font-light">
+      <prismic-rich-text :field="slice.primary.text" />
+    </p>
+    
+     <!-- Buttons -->
+    <div
+      v-if="slice.primary.button?.some((btn) => btn.text || btn.url)"
+      class="flex flex-wrap gap-4 my-6 justify-center"
+    >
+      <Button v-for="(btn, i) in slice.primary.button" :key="i" :btn="btn" />
+    </div>
+  </div>
   </section>
 </template>
 

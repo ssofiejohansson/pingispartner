@@ -4,25 +4,22 @@
     :data-slice-variation="slice.variation"
     class="wide bg-white"
   >
-    <div
-      class=""
-      :class="[slice.primary.fixed_image ? 'container my-20' : '']"
-    >
+  
       <div
-        class="flex flex-col lg:flex-row gap-4 lg:gap-12 w-full justify-center"
+        class="flex flex-col lg:flex-row w-full justify-center"
         :class="[slice.primary.fixed_image ? 'items-start' : 'items-center']"
       >
         <!-- MEDIA -->
         <div
           v-if="slice.primary.media && slice.primary.media.url"
-          class="flex justify-center w-full to-lg:max-h-[4y-400px] lg:w-1/2 max-w-4xl flex-shrink-0"
+          class="flex justify-center w-full to-lg:max-h-[400px] lg:w-1/2 lg:max-w-2xl flex-shrink-0"
           :class="[
             slice.variation === 'default'
               ? 'lg:order-1'
               : !tjanster
-                ? 'lg:order-2 border-b-8 border-b-accent border-r-8 border-r-accent lg:-mb-12 lg:mr-12 lg:shadow-md'
-                : 'lg:order-2',
-            slice.primary.fixed_image ? 'lg:w-1/3 lg:sticky lg:top-40' : '',
+                ? 'lg:order-2 lg:-mt-6'
+                : 'lg:order-2 lg:mt-0 ',
+            slice.primary.fixed_image ? ' lg:sticky lg:top-0 max-w-xl' : '',
           ]"
         >
           <video
@@ -42,16 +39,16 @@
             v-else
             :src="slice?.primary?.media?.url"
             :alt="slice?.primary?.media?.alt"
-            class="object-cover w-full h-auto aspect-[16/12]"
+            class="object-cover w-full h-auto aspect-[16/12] "
           />
         </div>
 
         <!-- CONTENT -->
         <div
-          class="w-full lg:w-1/2 max-w-3xl lg:px-8 px-4 py-8 rich-text"
+          class="w-full lg:w-1/2 max-w-2xl lg:px-10 lg:py-10 py-12 px-4 rich-text"
           :class="[
             slice.variation === 'default' ? 'lg:order-2' : 'lg:order-1',
-            slice.primary.fixed_image ? 'lg:w-2/3' : '',
+            slice.primary.fixed_image ? 'lg:w-2/3  mb-6  px-6 py-8' : ' ',
           ]"
         >
           <prismic-rich-text :field="slice.primary.content" />
@@ -68,7 +65,7 @@
           </div>
         </div>
       </div>
-    </div>
+ 
   </section>
 </template>
 

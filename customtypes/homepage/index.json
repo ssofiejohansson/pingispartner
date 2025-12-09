@@ -23,9 +23,6 @@
             "hero_2": {
               "type": "SharedSlice"
             },
-            "customer_logos": {
-              "type": "SharedSlice"
-            },
             "hero": {
               "type": "SharedSlice"
             },

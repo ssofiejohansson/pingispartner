@@ -36,7 +36,7 @@
           v-if="slice.variation === 'default'"
           v-for="ref in filteredReferences"
           :key="ref.id"
-          class="bg-white flex flex-col gap-6 to-md:mb-4 justify-start px-4 py-6 shadow-md"
+          class="bg-white flex flex-col gap-4 to-md:mb-4 justify-start px-4 py-6 shadow-md"
         >
           <!-- Image -->
           <img
@@ -47,10 +47,11 @@
           />
 
           <!-- Text content -->
-          <div class="lg:px-2 flex flex-col justify-center rich-text">
-            <prismic-rich-text :field="ref.data.name" />
+          <div class="lg:px-1 flex flex-col ">
+           <h2> <prismic-rich-text :field="ref.data.name" /> </h2>
             <prismic-rich-text :field="ref.data.title" />
-            <prismic-rich-text :field="ref.data.text" />
+            <div class="rich-text"> 
+            <prismic-rich-text :field="ref.data.text" /></div>
           </div>
         </div>
       </div>

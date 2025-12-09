@@ -2,12 +2,25 @@
 <section
   :data-slice-type="slice.slice_type"
   :data-slice-variation="slice.variation"
-  class="wide 2xl:container px-6 my-16 lg:my-24"
+  class="wide 2xl:container px-6 my-16 lg:my-28"
 >
   <div
     class=" rich-text max-w-2xl"
-    :class="slice.variation === 'center' ? 'text-center sm:mx-auto' : ''"
+    :class="slice.variation === 'center' ? 'text-center sm:mx-auto ' : 'text-center md:text-left'"
   >
+  <!-- Icon -->
+  <div
+  v-if="slice.primary.icon && slice.primary.icon?.url"
+  class="flex my-4 text-primaryDark"
+   :class="slice.variation === 'center' ? 'justify-center' : 'md:justify-start justify-center'"
+>
+  <img
+    :src="slice.primary.icon.url"
+    :alt="slice.primary.icon.alt || ''"
+    class="w-12 h-12 object-contain"
+  />
+</div>
+
     <!-- Text -->
     <prismic-rich-text
       v-if="slice.primary.content?.length"

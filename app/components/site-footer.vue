@@ -5,12 +5,12 @@
         <nuxt-link :to="home">
           <prismic-image
             :field="settings?.data?.logo"
-            class="h-16 w-auto block"
+            class="h-20 w-auto block"
           />
         </nuxt-link>
 
         <div class="flex items-center gap-1">
-          <p class="text-sm">I samarbete med</p>
+          <p class="text-base">I samarbete med</p>
           <Icon name="x" class="w-8 h-8"></Icon>
         </div>
 

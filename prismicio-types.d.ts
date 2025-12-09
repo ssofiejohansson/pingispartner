@@ -168,7 +168,6 @@ export type FormDocument<Lang extends string = string> =
 
 type HomepageDocumentDataSlicesSlice =
   | Hero2Slice
-  | CustomerLogosSlice
   | HeroSlice
   | TimelineSlice
   | ReferencesSlice
@@ -637,91 +636,47 @@ export type AllDocumentTypes =
   | SettingsDocument;
 
 /**
- * Item in *CustomerLogos → Default → Primary → logos*
- */
-export interface CustomerLogosSliceDefaultPrimaryLogosItem {
-  /**
-   * image field in *CustomerLogos → Default → Primary → logos*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: customer_logos.default.primary.logos[].image
-   * - **Documentation**: https://prismic.io/docs/fields/image
-   */
-  image: prismic.ImageField<never>;
-
-  /**
-   * link field in *CustomerLogos → Default → Primary → logos*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: customer_logos.default.primary.logos[].link
-   * - **Documentation**: https://prismic.io/docs/fields/link
-   */
-  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
-}
-
-/**
- * Primary content in *CustomerLogos → Default → Primary*
- */
-export interface CustomerLogosSliceDefaultPrimary {
-  /**
-   * eyebrowHeadline field in *CustomerLogos → Default → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: customer_logos.default.primary.eyebrowHeadline
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  eyebrowHeadline: prismic.RichTextField;
-
-  /**
-   * logos field in *CustomerLogos → Default → Primary*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: customer_logos.default.primary.logos[]
-   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
-   */
-  logos: prismic.GroupField<
-    Simplify<CustomerLogosSliceDefaultPrimaryLogosItem>
-  >;
-}
-
-/**
- * Default variation for CustomerLogos Slice
- *
- * - **API ID**: `default`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slices
- */
-export type CustomerLogosSliceDefault = prismic.SharedSliceVariation<
-  "default",
-  Simplify<CustomerLogosSliceDefaultPrimary>,
-  never
->;
-
-/**
- * Slice variation for *CustomerLogos*
- */
-type CustomerLogosSliceVariation = CustomerLogosSliceDefault;
-
-/**
- * CustomerLogos Shared Slice
- *
- * - **API ID**: `customer_logos`
- * - **Description**: CustomerLogos
- * - **Documentation**: https://prismic.io/docs/slices
- */
-export type CustomerLogosSlice = prismic.SharedSlice<
-  "customer_logos",
-  CustomerLogosSliceVariation
->;
-
-/**
  * Primary content in *Hero → Default → Primary*
  */
 export interface HeroSliceDefaultPrimary {
+  /**
+   * Heading field in *Hero → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  heading: prismic.RichTextField;
+
+  /**
+   * Text field in *Hero → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.default.primary.text
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  text: prismic.RichTextField;
+
+  /**
+   * Button field in *Hero → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.default.primary.button
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  button: prismic.Repeatable<
+    prismic.LinkField<
+      string,
+      string,
+      unknown,
+      prismic.FieldState,
+      "Primary" | "Secondary" | "CTA"
+    >
+  >;
+
   /**
    * Image or video field in *Hero → Default → Primary*
    *
@@ -731,16 +686,6 @@ export interface HeroSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/fields/link-to-media
    */
   hero_img: prismic.LinkToMediaField<prismic.FieldState, never>;
-
-  /**
-   * Hero Text field in *Hero → Default → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: Huvudrubrik
-   * - **API ID Path**: hero.default.primary.hero_text
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  hero_text: prismic.RichTextField;
 }
 
 /**
@@ -769,168 +714,6 @@ type HeroSliceVariation = HeroSliceDefault;
  * - **Documentation**: https://prismic.io/docs/slices
  */
 export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
-
-/**
- * Primary content in *Hero2 → Default → Primary*
- */
-export interface Hero2SliceDefaultPrimary {
-  /**
-   * eyebrowHeadline field in *Hero2 → Default → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: Eyebrow
-   * - **API ID Path**: hero_2.default.primary.eyebrowHeadline
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  eyebrowHeadline: prismic.KeyTextField;
-
-  /**
-   * title field in *Hero2 → Default → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero_2.default.primary.title
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  title: prismic.RichTextField;
-
-  /**
-   * description field in *Hero2 → Default → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero_2.default.primary.description
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  description: prismic.RichTextField;
-
-  /**
-   * image field in *Hero2 → Default → Primary*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero_2.default.primary.image
-   * - **Documentation**: https://prismic.io/docs/fields/image
-   */
-  image: prismic.ImageField<never>;
-
-  /**
-   * callToActionLink field in *Hero2 → Default → Primary*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero_2.default.primary.callToActionLink
-   * - **Documentation**: https://prismic.io/docs/fields/link
-   */
-  callToActionLink: prismic.LinkField<
-    string,
-    string,
-    unknown,
-    prismic.FieldState,
-    never
-  >;
-}
-
-/**
- * Default variation for Hero2 Slice
- *
- * - **API ID**: `default`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slices
- */
-export type Hero2SliceDefault = prismic.SharedSliceVariation<
-  "default",
-  Simplify<Hero2SliceDefaultPrimary>,
-  never
->;
-
-/**
- * Primary content in *Hero2 → Image Right → Primary*
- */
-export interface Hero2SliceImageRightPrimary {
-  /**
-   * eyebrowHeadline field in *Hero2 → Image Right → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: Eyebrow
-   * - **API ID Path**: hero_2.imageRight.primary.eyebrowHeadline
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  eyebrowHeadline: prismic.KeyTextField;
-
-  /**
-   * title field in *Hero2 → Image Right → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero_2.imageRight.primary.title
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  title: prismic.RichTextField;
-
-  /**
-   * description field in *Hero2 → Image Right → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero_2.imageRight.primary.description
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  description: prismic.RichTextField;
-
-  /**
-   * image field in *Hero2 → Image Right → Primary*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero_2.imageRight.primary.image
-   * - **Documentation**: https://prismic.io/docs/fields/image
-   */
-  image: prismic.ImageField<never>;
-
-  /**
-   * callToActionLink field in *Hero2 → Image Right → Primary*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero_2.imageRight.primary.callToActionLink
-   * - **Documentation**: https://prismic.io/docs/fields/link
-   */
-  callToActionLink: prismic.LinkField<
-    string,
-    string,
-    unknown,
-    prismic.FieldState,
-    never
-  >;
-}
-
-/**
- * Image Right variation for Hero2 Slice
- *
- * - **API ID**: `imageRight`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slices
- */
-export type Hero2SliceImageRight = prismic.SharedSliceVariation<
-  "imageRight",
-  Simplify<Hero2SliceImageRightPrimary>,
-  never
->;
-
-/**
- * Slice variation for *Hero2*
- */
-type Hero2SliceVariation = Hero2SliceDefault | Hero2SliceImageRight;
-
-/**
- * Hero2 Shared Slice
- *
- * - **API ID**: `hero_2`
- * - **Description**: Hero
- * - **Documentation**: https://prismic.io/docs/slices
- */
-export type Hero2Slice = prismic.SharedSlice<"hero_2", Hero2SliceVariation>;
 
 /**
  * Primary content in *MediaAndText → Default → Primary*
@@ -1183,6 +966,16 @@ export type ReferencesSlice = prismic.SharedSlice<
  */
 export interface TextContentSliceDefaultPrimary {
   /**
+   * icon field in *TextContent → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text_content.default.primary.icon
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  icon: prismic.ImageField<never>;
+
+  /**
    * Content field in *TextContent → Default → Primary*
    *
    * - **Field Type**: Rich Text
@@ -1228,6 +1021,16 @@ export type TextContentSliceDefault = prismic.SharedSliceVariation<
  * Primary content in *TextContent → Center → Primary*
  */
 export interface TextContentSliceCenterPrimary {
+  /**
+   * icon field in *TextContent → Center → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text_content.center.primary.icon
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  icon: prismic.ImageField<never>;
+
   /**
    * Content field in *TextContent → Center → Primary*
    *
@@ -1826,21 +1629,10 @@ declare module "@prismicio/client" {
       SettingsDocument,
       SettingsDocumentData,
       AllDocumentTypes,
-      CustomerLogosSlice,
-      CustomerLogosSliceDefaultPrimaryLogosItem,
-      CustomerLogosSliceDefaultPrimary,
-      CustomerLogosSliceVariation,
-      CustomerLogosSliceDefault,
       HeroSlice,
       HeroSliceDefaultPrimary,
       HeroSliceVariation,
       HeroSliceDefault,
-      Hero2Slice,
-      Hero2SliceDefaultPrimary,
-      Hero2SliceImageRightPrimary,
-      Hero2SliceVariation,
-      Hero2SliceDefault,
-      Hero2SliceImageRight,
       MediaAndTextSlice,
       MediaAndTextSliceDefaultPrimary,
       MediaAndTextSliceImageToTheRightPrimary,

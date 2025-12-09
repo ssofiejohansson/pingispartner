@@ -1,9 +1,9 @@
 <template>
-  <div class="w-full flex justify-between items-center p-5 lg:px-8 z-50 bg-transparent">
+  <div class="relative z-50 bg-transparent w-full flex justify-between items-center p-5 lg:px-8 ">
     <!-- Logo Left -->
     <div class="flex items-center">
       <nuxt-link :to="home">
-        <prismic-image :field="settings?.data?.logo" class="h-16 w-auto block" />
+        <prismic-image :field="settings?.data?.logo" class="h-20 w-auto block" />
       </nuxt-link>
     </div>
 
@@ -18,8 +18,8 @@
         @click="mobileMenuOpen = !mobileMenuOpen"
         class="w-14 h-14 relative z-[60]"
       >
-        <Icon v-if="mobileMenuOpen" name="x" class="w-14 h-14" />
-        <Icon v-else name="hamburger" class="w-14 h-14" />
+        <Icon v-if="mobileMenuOpen" name="x" class="w-16 h-16 text-dark" />
+        <Icon v-else name="hamburger" class="w-16 h-16 text-dark" />
       </button>
     </div>
 
@@ -27,7 +27,7 @@
     <transition name="fade">
       <div
         v-if="mobileMenuOpen"
-        class="fixed inset-0 bg-light/20 backdrop-blur-lg flex flex-col justify-center items-center z-50 lg:hidden"
+        class="fixed inset-0 bg-light/40 backdrop-blur-xl flex flex-col justify-center items-center z-50 lg:hidden"
       >
         <SiteNavigation @click.native="mobileMenuOpen = false" />
       </div>

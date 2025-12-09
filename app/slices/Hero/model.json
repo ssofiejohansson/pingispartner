@@ -12,6 +12,40 @@
       "description": "Default",
       "imageUrl": "",
       "primary": {
+        "heading": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Heading",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "heading1"
+          }
+        },
+        "text": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Text",
+            "placeholder": "",
+            "allowTargetBlank": false,
+            "multi": "paragraph"
+          }
+        },
+        "button": {
+          "type": "Link",
+          "config": {
+            "label": "Button",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": true,
+            "allowText": true,
+            "repeat": true,
+            "variants": [
+              "Primary",
+              "Secondary",
+              "CTA"
+            ]
+          }
+        },
         "hero_img": {
           "type": "Link",
           "config": {
@@ -19,15 +53,6 @@
             "placeholder": "",
             "select": "media",
             "allowText": false
-          }
-        },
-        "hero_text": {
-          "type": "StructuredText",
-          "config": {
-            "label": "Hero Text",
-            "placeholder": "Huvudrubrik",
-            "allowTargetBlank": false,
-            "multi": "heading1,heading2,paragraph"
           }
         }
       },

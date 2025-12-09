@@ -3,20 +3,9 @@
 		"__TYPE__": "SharedSliceContent",
 		"variation": "default",
 		"primary": {
-			"hero_text": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "paragraph",
-						"content": {
-							"text": "Dolore ex ad irure fugiat id elit. Voluptate ipsum consequat quis."
-						}
-					}
-				]
-			},
 			"hero_img": {
-				"__TYPE__": "LinkContent",
 				"key": "aed97781-9105-464d-be2a-72dc218dfdb6",
+				"__TYPE__": "LinkContent",
 				"value": {
 					"__TYPE__": "FileLink",
 					"id": "mock_Media_link",
@@ -25,6 +14,44 @@
 					"url": "https://source.unsplash.com/daily",
 					"size": "0"
 				}
+			},
+			"button": {
+				"__TYPE__": "RepeatableContent",
+				"type": "Link",
+				"value": [
+					{
+						"key": "e7235313-c78b-4758-b095-eea60de04bf1",
+						"__TYPE__": "LinkContent",
+						"value": {
+							"__TYPE__": "ExternalLink",
+							"url": "https://prismic.io",
+							"text": "report",
+							"variant": "CTA"
+						}
+					}
+				]
+			},
+			"text": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Eu pariatur nostrud eu ex nostrud quis do. Labore eiusmod quis sit ad sint non ut id qui est velit laborum fugiat nisi. Veniam eu dolor culpa qui."
+						}
+					}
+				]
+			},
+			"heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading1",
+						"content": {
+							"text": "Changing"
+						}
+					}
+				]
 			}
 		},
 		"items": []

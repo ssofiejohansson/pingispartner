@@ -12,6 +12,14 @@
       "description": "Default",
       "imageUrl": "",
       "primary": {
+        "icon": {
+          "type": "Image",
+          "config": {
+            "label": "icon",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
         "content": {
           "type": "StructuredText",
           "config": {
@@ -48,6 +56,14 @@
       "description": "Default",
       "imageUrl": "",
       "primary": {
+        "icon": {
+          "type": "Image",
+          "config": {
+            "label": "icon",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
         "content": {
           "type": "StructuredText",
           "config": {

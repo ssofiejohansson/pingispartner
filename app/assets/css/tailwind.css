@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -13,22 +13,13 @@
     @apply bg-light text-dark font-[Outfit] antialiased;
   }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    @apply font-bold;
-  }
-
   .rich-text h1,
   .rich-text h2,
   .rich-text h3,
   .rich-text h4,
   .rich-text h5,
   .rich-text h6 {
-    @apply mb-4 leading-none;
+    @apply leading-none;
   }
 
   .rich-text p + h1,
@@ -41,122 +32,97 @@
   }
 
   .rich-text h1 {
-    @apply text-4xl;
+    @apply text-2xl lg:text-3xl;
   }
- .rich-text h2 {
-  @apply text-xl md:text-2xl relative before:content-[''] before:block before:w-12 before:h-2 before:bg-accent before:mb-4 mb-2;
-}
+
+  .rich-text h2 {
+    @apply font-bold text-xl md:text-2xl relative before:content-[''] after:block after:w-16 after:h-2 after:bg-accent after:mt-4 mb-4;
+  }
+
+  h1 {
+    @apply font-bold text-2xl md:text-3xl leading-tight mb-4;
+  }
   h2 {
-    @apply lg:text-xl text-lg ;
+    @apply font-bold text-lg mb-1;
+  }
+   h3 {
+    @apply text-lg mb-1;
   }
 
   .rich-text h3 {
-    @apply text-lg md:text-xl;
+    @apply text-lg md:text-xl font-light;
   }
-  .rich-text h4 {
-    @apply text-lg;
-  }
-  .rich-text h5 {
-    @apply text-lg;
-  }
-  .rich-text h6 {
-    @apply text-lg;
+  
+  .rich-text h4,
+  h5,
+  h6 {
+    @apply text-lg font-bold;
   }
 
   .rich-text p,
   .rich-text ul,
   .rich-text ol {
-    @apply text-sm sm:text-base last:mb-0 first:mt-0 leading-relaxed;
+    @apply text-sm sm:text-base my-4 last:mb-0 first:mt-0 leading-relaxed;
   }
 
-.rich-text ul {
-  list-style: none;
-}
+  .rich-text ul {
+    list-style: none;
+  }
 
-.rich-text ul li {
-  position: relative;
-  padding-left: 26px;
-}
+  .rich-text ol {
+    counter-reset: custom-counter;
+    padding-left: 0;
+    margin-left: 0.8rem;
+  }
 
-.rich-text ul li::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0.3rem;
-  width: 1rem; 
-  height: 1rem;
-  background-image: url('/favicon.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-}
+  .rich-text ol li {
+    counter-increment: custom-counter;
+    list-style: none;
+    position: relative;
+    margin-bottom: 0.6rem;
+    padding-left: 3rem;
+    font-size: 1.1rem;
+    font-weight: 400;
+    line-height: 2;
+    text-align: left;
+  }
 
-/* numbered list */
-/* 
-.rich-text ol {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-.rich-text ol li {
-  position: relative;
-  background: white;
-  padding: 1.5rem;
-  width: 240px;
-  height: 120px;
-  font-size: 22px;
-  font-weight: 700;
-  
-  z-index: 1;
-}
-.rich-text ol li::before {
-  content: '';
-  position: absolute;
-  left: 10px;
-  bottom: 10px;
-  width: 60px;
-  height: 60px;
-  background-image: url('/favicon.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  
-  transform: rotate(20deg);
-  z-index: -1;
-} 
-*/
+  /* Custom number bubble */
+  .rich-text ol li::before {
+    content: counter(custom-counter);
+    position: absolute;
+    left: 0.1rem;
+    width: 2rem;
+    height: 2rem;
+    background: #ed6b44;
+    color: #f9f9f9;
+    border-radius: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    font-weight: 500;
+  }
 
-.rich-text ol li {
-  position: relative;
-  padding-left: 0;  
-  padding: 8px;
-  font-size: 24px;
-  font-weight: 800;
-  z-index: 1; 
-}
+  .rich-text ul li {
+    position: relative;
+    padding-left: 2rem;
+  }
 
-.rich-text ol li::before {
-  content: '';
-  position: absolute;
-  left: 10rem;
-  top: 0.5rem;
-  width: 3rem; 
-  height: 3rem;
-  background-image: url('/favicon.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-   transform: rotate(24deg);
-   z-index: -1; 
-}
+  .rich-text ul li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.3rem;
+    width: 1.2rem;
+    height: 1.2rem;
+    background-image: url("/favicon.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
 
-.rich-text ol li:hover::before {
-  transform: rotate(-2deg);
-} 
-
-
-  .rich-text a {
-    @apply no-underline;
+  a {
+    @apply no-underline hover:underline ;
   }
 
   .form-input {
@@ -166,7 +132,6 @@
   .form-textarea {
     @apply border border-dark w-full h-20 rounded-md p-5;
   }
-
 }
 
 @layer components {
