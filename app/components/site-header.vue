@@ -3,7 +3,7 @@
     <!-- Logo Left -->
     <div class="flex items-center">
       <nuxt-link :to="home">
-        <prismic-image :field="settings?.data?.logo" class="h-20 w-auto block" />
+        <prismic-image :field="settings?.data?.logo" class="h-16 w-auto block" />
       </nuxt-link>
     </div>
 
@@ -16,10 +16,10 @@
     <div class="lg:hidden">
       <button
         @click="mobileMenuOpen = !mobileMenuOpen"
-        class="w-14 h-14 relative z-[60]"
+        class="w-14 h-14 relative z-[60] text-dark"
       >
-        <Icon v-if="mobileMenuOpen" name="x" class="w-16 h-16 text-dark" />
-        <Icon v-else name="hamburger" class="w-16 h-16 text-dark" />
+        <Icon v-if="mobileMenuOpen" name="x" class="w-15 h-15" />
+        <Icon v-else name="hamburger" class="w-15 h-15" />
       </button>
     </div>
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full py-20">
+  <div class="w-full py-20 bg-white mt-10">
     <div class="container">
       <div class="flex flex-col items-center justify-center gap-8">
         <nuxt-link :to="home">
@@ -14,7 +14,7 @@
           <Icon name="x" class="w-8 h-8"></Icon>
         </div>
 
-        <!-- <p class="text-sm">Skapad av...</p> -->
+        <!-- <p class="text-sm">Skapad av SJ</p> -->
       </div>
     </div>
   </div>

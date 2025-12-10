@@ -19,7 +19,7 @@
     :alt="slice.primary.icon.alt || ''"
     class="w-12 h-12 object-contain"
   />
-</div>
+</div> 
 
     <!-- Text -->
     <prismic-rich-text

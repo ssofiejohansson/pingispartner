@@ -42,17 +42,15 @@
   h1 {
     @apply font-bold text-2xl md:text-3xl leading-tight mb-4;
   }
-  h2 {
-    @apply font-bold text-lg mb-1;
-  }
-   h3 {
+  
+  h3 {
     @apply text-lg mb-1;
   }
 
   .rich-text h3 {
     @apply text-lg md:text-xl font-light;
   }
-  
+
   .rich-text h4,
   h5,
   h6 {
@@ -82,8 +80,8 @@
     margin-bottom: 0.6rem;
     padding-left: 3rem;
     font-size: 1.1rem;
-    font-weight: 400;
-    line-height: 2;
+    font-weight: 300;
+    line-height: 1.7;
     text-align: left;
   }
 
@@ -103,7 +101,7 @@
     font-size: 1.3rem;
     font-weight: 500;
   }
-
+  /* custom bullet icons */
   .rich-text ul li {
     position: relative;
     padding-left: 2rem;
@@ -121,8 +119,17 @@
     background-repeat: no-repeat;
   }
 
+  .ref h2{
+   font-size: larger;
+
+   font-weight: bold;
+  }
+    .ref p{
+   font-size: large;
+  }
+
   a {
-    @apply no-underline hover:underline ;
+    @apply no-underline;
   }
 
   .form-input {

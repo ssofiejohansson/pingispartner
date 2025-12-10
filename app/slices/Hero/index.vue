@@ -5,7 +5,7 @@
     class="relative w-full flex items-center justify-center overflow-hidden"
   >
     <!-- Background Media (video or image) -->
-    <div class="absolute inset-0 z-0 w-full h-full overflow-hidden">
+    <div class="absolute inset-0 z-1 w-full h-full overflow-hidden opacity-20">
 
       <!-- VIDEO (mp4) -->
       <video
@@ -31,7 +31,7 @@
     </div>
 
     <!-- Hero Text -->
-   <div class="text-center max-w-3xl mx-auto px-6 my-12" >
+   <div class="text-center z-20 max-w-3xl mx-auto px-6 my-12" >
     <div class="">
         <prismic-rich-text :field="slice.primary.heading" />
     </div>

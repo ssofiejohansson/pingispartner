@@ -39,13 +39,13 @@
             v-else
             :src="slice?.primary?.media?.url"
             :alt="slice?.primary?.media?.alt"
-            class="object-cover w-full h-auto aspect-[16/12] "
+            class="object-cover w-full h-auto aspect-[16/12] object-center "
           />
         </div>
 
         <!-- CONTENT -->
         <div
-          class="w-full lg:w-1/2 max-w-2xl lg:px-10 lg:py-10 py-12 px-4 rich-text"
+          class="w-full lg:w-1/2 max-w-2xl lg:px-10 lg:py-4 py-12 px-4 rich-text"
           :class="[
             slice.variation === 'default' ? 'lg:order-2' : 'lg:order-1',
             slice.primary.fixed_image ? 'lg:w-2/3  mb-6  px-6 py-8' : ' ',

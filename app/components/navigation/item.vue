@@ -5,11 +5,10 @@
       <PrismicLink
         v-if="link.link_type === 'Document'"
         :field="link"
-        class="hover:text-primaryDark block text-xl lg:text-base text-center"
         @click.prevent="toggleDropdown"
         :class="[
-          'hover:text-primaryDark block py-2 text-xl lg:text-base text-center lg:text-left ',
-          isActive ? 'border-b-2 border-primaryDark text-primaryDark' : '',
+          'hover:text-primaryDark font-semibold block py-1 text-base text-center lg:text-left ',
+          isActive ? 'border-b-4 border-primaryDark text-primaryDark' : '',
         ]"
       >
         {{ text }}

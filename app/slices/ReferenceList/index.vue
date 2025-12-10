@@ -22,12 +22,12 @@
           @click="filter = option.value"
         />
       </div>
-    
+
       <div
         class="mx-auto"
         :class="[
           slice.variation === 'default'
-            ? 'md:grid grid-cols-2 lg:grid-cols-3 gap-6 md:gap-4 auto-rows-auto'
+            ? 'md:grid grid-cols-2 lg:grid-cols-3 gap-6 md:gap-4 auto-rows-min'
             : '',
         ]"
       >
@@ -36,7 +36,7 @@
           v-if="slice.variation === 'default'"
           v-for="ref in filteredReferences"
           :key="ref.id"
-          class="bg-white flex flex-col gap-4 to-md:mb-4 justify-start px-4 py-6 shadow-md"
+          class="bg-white flex flex-col gap-2 to-md:mb-4 justify-start px-4 py-6 shadow-md"
         >
           <!-- Image -->
           <img
@@ -47,11 +47,34 @@
           />
 
           <!-- Text content -->
-          <div class="lg:px-1 flex flex-col ">
-           <h2> <prismic-rich-text :field="ref.data.name" /> </h2>
-            <prismic-rich-text :field="ref.data.title" />
-            <div class="rich-text"> 
-            <prismic-rich-text :field="ref.data.text" /></div>
+          <div class="lg:px-1 flex flex-col gap-2">
+            <h2 class="ref">
+              <prismic-rich-text :field="ref.data.name" />
+            </h2>
+            <div class="ref">
+              <prismic-rich-text :field="ref.data.title" />
+            </div>
+
+            <!-- Text with preview / toggle -->
+            <div class="rich-text">
+              <template v-if="!expanded[ref.id]">
+                <!-- Preview text -->
+                {{ reviewPreview(ref.id) }}
+              </template>
+              <template v-else>
+                <!-- Full rich text including lists -->
+                <prismic-rich-text :field="ref.data.text" />
+              </template>
+
+              <!-- Toggle button -->
+              <button
+                v-if="reviewIsLong(ref.id)"
+                @click="toggle(ref.id)"
+                class="text-primaryDark hover:underline text-xs mt-1"
+              >
+                {{ expanded[ref.id] ? "Visa mindre" : "Visa mer" }}
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -65,6 +88,8 @@
 </template>
 
 <script setup>
+import { ref, computed } from "vue";
+
 const props = defineProps(["slice", "index", "slices", "context"]);
 const filter = ref("all");
 
@@ -91,4 +116,28 @@ const filteredReferences = computed(() => {
       })
     );
 });
+
+// ===== Expand / collapse logic =====
+const expanded = ref({}); // store expanded state for each reference
+const WORD_LIMIT = 40;
+
+// Toggle expanded state
+const toggle = (id) => (expanded.value[id] = !expanded.value[id]);
+
+// Extract plain text for preview (joins all blocks)
+const extract = (id) => {
+  const refItem = filteredReferences.value.find((r) => r.id === id);
+  return refItem?.data.text?.map((block) => block.text).join(" ") || "";
+};
+
+// Check if text is longer than WORD_LIMIT
+const reviewIsLong = (id) => extract(id).split(" ").length > WORD_LIMIT;
+
+// Get preview text
+const reviewPreview = (id) => {
+  const text = extract(id);
+  const words = text.split(" ");
+  if (expanded.value[id] || words.length <= WORD_LIMIT) return text;
+  return words.slice(0, WORD_LIMIT).join(" ") + "...";
+};
 </script>
