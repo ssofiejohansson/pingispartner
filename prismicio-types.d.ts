@@ -69,7 +69,7 @@ type ContentRelationshipFieldWithData<
   >;
 }[Exclude<TCustomType[number], string>["id"]];
 
-type FooterDocumentDataSlicesSlice = MenuItemSlice | TextContentSlice;
+type FooterDocumentDataSlicesSlice = TextContentSlice | MenuItemSlice;
 
 /**
  * Content for Footer documents
@@ -167,7 +167,7 @@ export type FormDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<FormDocumentData>, "form", Lang>;
 
 type HomepageDocumentDataSlicesSlice =
-  | Hero2Slice
+  | MenuItemSlice
   | HeroSlice
   | TimelineSlice
   | ReferencesSlice

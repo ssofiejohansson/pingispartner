@@ -7,7 +7,7 @@
         :field="link"
         @click.prevent="toggleDropdown"
         :class="[
-          'hover:text-primaryDark font-semibold block py-1 text-base text-center lg:text-left ',
+          'hover:text-primaryDark font-normal block py-1 text-lg text-center lg:text-left',
           isActive ? 'border-b-4 border-primaryDark text-primaryDark' : '',
         ]"
       >

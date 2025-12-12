@@ -20,7 +20,7 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
-            "hero_2": {
+            "menu_item": {
               "type": "SharedSlice"
             },
             "hero": {

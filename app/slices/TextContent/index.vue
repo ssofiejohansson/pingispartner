@@ -11,14 +11,15 @@
   <!-- Icon -->
   <div
   v-if="slice.primary.icon && slice.primary.icon?.url"
-  class="flex my-4 text-primaryDark"
+  class="flex my-4"
    :class="slice.variation === 'center' ? 'justify-center' : 'md:justify-start justify-center'"
 >
+<div class=" p-2"> 
   <img
     :src="slice.primary.icon.url"
     :alt="slice.primary.icon.alt || ''"
-    class="w-12 h-12 object-contain"
-  />
+    class="w-16 h-16"
+  /></div>
 </div> 
 
     <!-- Text -->

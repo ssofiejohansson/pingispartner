@@ -11,10 +11,10 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
-            "menu_item": {
+            "text_content": {
               "type": "SharedSlice"
             },
-            "text_content": {
+            "menu_item": {
               "type": "SharedSlice"
             }
           }

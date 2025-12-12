@@ -42,9 +42,9 @@ module.exports = {
 
       /* Brand colors */
       colors: {
-        primary: "#008650", // main green
-        primaryDark: "#02693f", // dark green
-        light: "#f9f9f9", // light
+        primary:  "#008650", // "#" main green
+        primaryDark: "#02693f", // 02693f dark green
+        light: "#f8f2f1", // light
         dark: "#242424", // dark
         accent: "#ed6b44", // accent red
       },

@@ -8,22 +8,41 @@
             class="h-20 w-auto block"
           />
         </nuxt-link>
+        <!-- <pre>{{ footer?.data }}</pre> -->
+        
+
+        <!-- links -->
+        <ul>
+          <li
+            v-for="(link, index) in footer?.data?.links || []"
+            :key="`footer-link-${index}`"
+            class="text-center"
+          >
+            <PrismicLink :field="primary.link">
+              {{ primary.link.text }}
+            </PrismicLink>
+          </li>
+        </ul>
+
+        <SliceZone
+          v-if="footer?.data?.slices?.length"
+          :slices="footer.data.slices"
+          :components="components"
+        />
 
         <div class="flex items-center gap-1">
           <p class="text-base">I samarbete med</p>
-          <Icon name="x" class="w-8 h-8"></Icon>
+          <Icon name="x" class="w-8 h-8" />
         </div>
-
-        <!-- <p class="text-sm">Skapad av SJ</p> -->
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
+import { components } from "~/slices";
+
 const home = useHome();
 const { data: settings } = await useSettings();
-
-// Footer data from prismic single type:
-// const { data: footer } = await useFooter();
+const { data: footer } = await useFooter();
 </script>

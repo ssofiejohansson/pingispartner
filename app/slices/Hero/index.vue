@@ -2,12 +2,12 @@
   <section
     :data-slice-type="slice.slice_type"
     :data-slice-variation="slice.variation"
-    class="relative w-full flex items-center justify-center overflow-hidden"
+    class="w-full overflow-hidden lg:h-[50vh] min-h-[30vh]"
   >
     <!-- Background Media (video or image) -->
-    <div class="absolute inset-0 z-1 w-full h-full overflow-hidden opacity-20">
+    <!-- <div class="absolute inset-0 z-1 w-full h-full overflow-hidden opacity-20">
 
-      <!-- VIDEO (mp4) -->
+
       <video
         v-if="
           slice?.primary?.hero_img?.kind === 'file' &&
@@ -21,21 +21,24 @@
         playsinline
       ></video>
 
-      <!-- IMAGE -->
+     
       <div
         v-else
         class="absolute inset-0 bg-cover bg-center"
         :style="{ backgroundImage: `url(${slice.primary.hero_img.url})` }"
       ></div>
 
-    </div>
+    </div> -->
 
     <!-- Hero Text -->
-   <div class="text-center z-20 max-w-3xl mx-auto px-6 my-12" >
-    <div class="">
-        <prismic-rich-text :field="slice.primary.heading" />
-    </div>
+   <div class=" flex flex-col gap-2 items-center justify-center text-center max-w-3xl mx-auto p-6 my-12" >
 
+   
+    <div class="flex flex-row gap-0  ">
+       <prismic-rich-text :field="slice.primary.heading" /> 
+       <!-- <span>  <Icon name="pingisIcon" class=""/></span> -->
+    </div>
+    <hr class="w-32 h-2 mx-auto my-4 bg-accent border-0"></hr>
     <p class="text-lg font-light">
       <prismic-rich-text :field="slice.primary.text" />
     </p>
