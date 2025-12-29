@@ -12,7 +12,7 @@
         
 
         <!-- links -->
-        <ul>
+        <!-- <ul>
           <li
             v-for="(link, index) in footer?.data?.links || []"
             :key="`footer-link-${index}`"
@@ -22,13 +22,13 @@
               {{ primary.link.text }}
             </PrismicLink>
           </li>
-        </ul>
+        </ul> -->
 
-        <SliceZone
+        <!-- <SliceZone
           v-if="footer?.data?.slices?.length"
           :slices="footer.data.slices"
           :components="components"
-        />
+        /> -->
 
         <div class="flex items-center gap-1">
           <p class="text-base">I samarbete med</p>

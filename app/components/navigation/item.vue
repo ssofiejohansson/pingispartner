@@ -7,7 +7,7 @@
         :field="link"
         @click.prevent="toggleDropdown"
         :class="[
-          'hover:text-primaryDark font-normal block py-1 text-lg text-center lg:text-left',
+          'hover:text-primaryDark font-normal block pb-1 text-base text-center lg:text-left',
           isActive ? 'border-b-4 border-primaryDark text-primaryDark' : '',
         ]"
       >
@@ -30,7 +30,7 @@
         :items="[]"
         :link="item.link"
         :text="item.text"
-        class="py-2 text-lg lg:text-base"
+        class="py-2"
       />
     </ul>
   </li>
@@ -46,12 +46,10 @@ const props = defineProps({
 const open = ref(false);
 const route = useRoute();
 
-// Check if this link is the current page
 const isActive = computed(() => {
   return props.link?.url === route.path;
 });
 
-// Toggle submenu on mobile/tablet only
 function toggleDropdown() {
   if (window.innerWidth < 1024 && props.items.length > 0) {
     open.value = !open.value;

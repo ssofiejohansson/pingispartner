@@ -2,7 +2,7 @@
   <section
     :data-slice-type="slice.slice_type"
     :data-slice-variation="slice.variation"
-    class="w-full overflow-hidden lg:h-[50vh] min-h-[30vh]"
+    class="w-full overflow-hidden lg:min-h-[50vh] min-h-[30vh]"
   >
     <!-- Background Media (video or image) -->
     <!-- <div class="absolute inset-0 z-1 w-full h-full overflow-hidden opacity-20">
@@ -32,7 +32,6 @@
 
     <!-- Hero Text -->
    <div class=" flex flex-col gap-2 items-center justify-center text-center max-w-3xl mx-auto p-6 my-12" >
-
    
     <div class="flex flex-row gap-0  ">
        <prismic-rich-text :field="slice.primary.heading" /> 
