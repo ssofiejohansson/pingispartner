@@ -74,9 +74,8 @@
 <style>
 .rich-text img {
   display: block;
-  margin: 1rem;
-  width: 3rem;
-  height: 3rem;
+  width: 50px;
+  height: 50px;
   padding: 0.5rem;
   border-radius: 9999px;
   background-color: rgba(237, 107, 68, 0.1);

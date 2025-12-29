@@ -41,18 +41,13 @@
                   "multi": "paragraph,strong,em,hyperlink,image,embed,list-item,o-list-item"
                 }
               },
-              "image": {
-                "type": "Image",
+              "media": {
+                "type": "Link",
                 "config": {
-                  "label": "Valfri bild",
-                  "constraint": {},
-                  "thumbnails": [
-                    {
-                      "name": "small",
-                      "width": 500,
-                      "height": 500
-                    }
-                  ]
+                  "label": "Image or video",
+                  "placeholder": "",
+                  "select": "media",
+                  "allowText": true
                 }
               }
             }

@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full py-20 bg-white mt-10">
+  <div class="w-full py-20 bg-light mt-10">
     <div class="container">
       <div class="flex flex-col items-center justify-center gap-8">
         <nuxt-link :to="home">
@@ -8,6 +8,7 @@
             class="h-20 w-auto block"
           />
         </nuxt-link>
+        
         <!-- <pre>{{ footer?.data }}</pre> -->
         
 
@@ -30,9 +31,9 @@
           :components="components"
         /> -->
 
-        <div class="flex items-center gap-1">
+        <div class="flex items-center gap-2">
           <p class="text-base">I samarbete med</p>
-          <Icon name="x" class="w-8 h-8" />
+          <Icon name="stiga" class="h-10 w-auto" />
         </div>
       </div>
     </div>

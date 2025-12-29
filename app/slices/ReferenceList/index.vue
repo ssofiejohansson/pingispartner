@@ -12,9 +12,9 @@
       >
         <Button
           v-for="(option, i) in [
-            { label: 'Alla', value: 'all', variant: 'Secondary' },
-            { label: 'Företag', value: 'company', variant: 'Secondary' },
-            { label: 'Privat', value: 'private', variant: 'Secondary' },
+            { label: 'Alla', value: 'all', variant: 'Primary' },
+            { label: 'Företag', value: 'company', variant: 'Primary' },
+            { label: 'Privat', value: 'private', variant: 'Primary' },
           ]"
           :class="'cursor-pointer'"
           :key="i"

@@ -1,9 +1,14 @@
 <template>
-  <div class="relative z-50 bg-transparent w-full flex justify-between items-center p-5 lg:px-8 ">
+  <div
+    class="relative z-50 bg-transparent w-full flex justify-between items-center p-5 lg:px-8"
+  >
     <!-- Logo Left -->
     <div class="flex items-center">
       <nuxt-link :to="home">
-        <prismic-image :field="settings?.data?.logo" class="h-16 w-auto block" />
+        <prismic-image
+          :field="settings?.data?.logo"
+          class="h-16 w-auto block"
+        />
       </nuxt-link>
     </div>
 
@@ -16,10 +21,15 @@
     <div class="lg:hidden">
       <button
         @click="mobileMenuOpen = !mobileMenuOpen"
-        class="w-14 h-14 relative z-[60] text-dark"
+        class="w-12 h-12 relative z-[60] text-dark"
       >
-        <Icon v-if="mobileMenuOpen" name="x" class="w-15 h-15" />
-        <Icon v-else name="hamburger" class="w-15 h-15" />
+        <transition name="icon" mode="out-in">
+          <Icon
+            :key="mobileMenuOpen"
+            :name="mobileMenuOpen ? 'x' : 'hamburger'"
+            class="w-12 h-12"
+          />
+        </transition>
       </button>
     </div>
 
@@ -35,35 +45,12 @@
   </div>
 </template>
 
-
 <script setup>
-const home = useHome()
-const { data: settings } = await useSettings()
-const mobileMenuOpen = ref(false)
+import { ref } from "vue";
 
-import { ref, onMounted, onUnmounted } from "vue";
-
-const scrolled = ref(false);
-const isDesktop = ref(false);
-
-const handleScroll = () => {
-  scrolled.value = window.scrollY > 80; // change threshold if needed
-};
-
-const handleResize = () => {
-  isDesktop.value = window.innerWidth >= 1024; // Tailwind lg breakpoint
-};
-
-onMounted(() => {
-  handleResize();
-  window.addEventListener("scroll", handleScroll);
-  window.addEventListener("resize", handleResize);
-});
-
-onUnmounted(() => {
-  window.removeEventListener("scroll", handleScroll);
-  window.removeEventListener("resize", handleResize);
-});
+const home = useHome();
+const { data: settings } = await useSettings();
+const mobileMenuOpen = ref(false);
 </script>
 
 <style scoped>
@@ -73,6 +60,23 @@ onUnmounted(() => {
 }
 .fade-enter-from,
 .fade-leave-to {
+  opacity: 0;
+}
+
+.icon-enter-active,
+.icon-leave-active {
+  transition:
+    transform 0.25s ease,
+    opacity 0.2s ease;
+}
+
+.icon-enter-from {
+  transform: rotate(-90deg) scale(0.8);
+  opacity: 0;
+}
+
+.icon-leave-to {
+  transform: rotate(90deg) scale(0.8);
   opacity: 0;
 }
 </style>

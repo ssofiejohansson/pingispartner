@@ -5,21 +5,6 @@
   "repeatable": false,
   "status": true,
   "json": {
-    "Content": {
-      "slices": {
-        "type": "Slices",
-        "fieldset": "Slice Zone",
-        "config": {
-          "choices": {
-            "text_content": {
-              "type": "SharedSlice"
-            },
-            "menu_item": {
-              "type": "SharedSlice"
-            }
-          }
-        }
-      }
-    }
+    "Content": {}
   }
 }

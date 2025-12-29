@@ -69,23 +69,7 @@ type ContentRelationshipFieldWithData<
   >;
 }[Exclude<TCustomType[number], string>["id"]];
 
-type FooterDocumentDataSlicesSlice = TextContentSlice | MenuItemSlice;
-
-/**
- * Content for Footer documents
- */
-interface FooterDocumentData {
-  /**
-   * Slice Zone field in *Footer*
-   *
-   * - **Field Type**: Slice Zone
-   * - **Placeholder**: *None*
-   * - **API ID Path**: footer.slices[]
-   * - **Tab**: Content
-   * - **Documentation**: https://prismic.io/docs/slices
-   */
-  slices: prismic.SliceZone<FooterDocumentDataSlicesSlice>;
-}
+interface FooterDocumentData {}
 
 /**
  * Footer document from Prismic
@@ -1127,14 +1111,14 @@ export interface TimelineSliceDefaultPrimaryYearItem {
   content: prismic.RichTextField;
 
   /**
-   * Valfri bild field in *Timeline → Default → Primary → Year*
+   * Image or video field in *Timeline → Default → Primary → Year*
    *
-   * - **Field Type**: Image
+   * - **Field Type**: Link to Media
    * - **Placeholder**: *None*
-   * - **API ID Path**: timeline.default.primary.year[].image
-   * - **Documentation**: https://prismic.io/docs/fields/image
+   * - **API ID Path**: timeline.default.primary.year[].media
+   * - **Documentation**: https://prismic.io/docs/fields/link-to-media
    */
-  image: prismic.ImageField<"small">;
+  media: prismic.LinkToMediaField<prismic.FieldState, never>;
 }
 
 /**
@@ -1608,7 +1592,6 @@ declare module "@prismicio/client" {
     export type {
       FooterDocument,
       FooterDocumentData,
-      FooterDocumentDataSlicesSlice,
       FormDocument,
       FormDocumentData,
       FormDocumentDataSlicesSlice,

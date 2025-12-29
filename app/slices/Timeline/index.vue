@@ -5,13 +5,12 @@
     class="my-24"
   >
     <div class="container relative">
-
       <div
-        class="absolute -top-20 left-4 md:left-1/2 md:-translate-x-1/2 text-primaryDark font-bold text-3xl "
+        class="absolute -top-20 left-4 md:left-1/2 md:-translate-x-1/2 text-primaryDark font-bold text-3xl"
       >
-            <span class="border-b-8 border-primaryDark mb-4 z-100"> 1962 </span>
+        <span class="border-b-8 border-primaryDark mb-4 z-100"> 1962 </span>
       </div>
-      
+
       <!-- Center timeline line -->
       <div
         class="absolute -top-2 h-full w-[2px] bg-primaryDark left-4 md:left-1/2 md:-translate-x-1/2"
@@ -19,7 +18,6 @@
 
       <!-- Timeline items -->
       <div class="flex flex-col gap-12 pt-6 relative z-10">
-
         <div
           v-for="(item, i) in slice.primary.year"
           :key="i"
@@ -31,8 +29,7 @@
           <!-- top line -->
           <div
             class="absolute w-6 h-1 bg-primaryDark -left-4 md:left-1/2 md:-translate-x-1/2"
-          > 
-        </div>
+          ></div>
 
           <!-- text -->
           <div
@@ -53,13 +50,29 @@
           </div>
 
           <div
-            class="lg:max-w-sm max-w-xs w-full"
+            class="lg:max-w-md max-w-xs w-full"
             :class="[i % 2 === 0 ? 'md:mr-auto' : 'md:ml-auto']"
           >
+            <!-- VIDEO -->
+            <video
+              v-if="
+                item?.media?.kind === 'file' &&
+                item?.media?.name?.includes('mp4')
+              "
+              :src="item.media.url"
+              class="w-full h-auto aspect-[16/12] object-cover"
+              muted
+              autoplay
+              loop
+              playsinline
+            ></video>
+
+            <!-- IMAGE -->
             <img
-              v-if="item.image?.small?.url"
-              :src="item.image.small.url"
-              class="w-full h-auto"
+              v-else-if="item?.media?.url"
+              :src="item.media.url"
+              :alt="item.media.alt || ''"
+              class="w-full h-auto aspect-[16/12] object-cover object-center"
             />
           </div>
         </div>
@@ -69,7 +82,7 @@
 </template>
 
 <script setup>
-import Icon from '~/components/icon.vue';
+import Icon from "~/components/icon.vue";
 
 defineProps(["slice", "index", "slices", "context"]);
 </script>

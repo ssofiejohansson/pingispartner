@@ -40,50 +40,18 @@
 								}
 							],
 							[
-								"image",
+								"media",
 								{
-									"origin": {
-										"id": "main",
-										"url": "https://images.unsplash.com/photo-1606248897732-2c5ffe759c04",
-										"width": 4000,
-										"height": 4000
-									},
-									"url": "https://images.unsplash.com/photo-1606248897732-2c5ffe759c04",
-									"width": 4000,
-									"height": 4000,
-									"edit": {
-										"zoom": 1,
-										"crop": {
-											"x": 0,
-											"y": 0
-										},
-										"background": "transparent"
-									},
-									"alt": "difference",
-									"credits": null,
-									"__TYPE__": "ImageContent",
-									"thumbnails": {
-										"small": {
-											"origin": {
-												"id": "small",
-												"url": "https://images.unsplash.com/photo-1576662712957-9c79ae1280f8",
-												"width": 3456,
-												"height": 3456
-											},
-											"url": "https://images.unsplash.com/photo-1576662712957-9c79ae1280f8?rect=0%2C0%2C3456%2C3456&w=500&h=500",
-											"width": 500,
-											"height": 500,
-											"edit": {
-												"zoom": 1,
-												"crop": {
-													"x": 0,
-													"y": 0
-												},
-												"background": "transparent"
-											},
-											"alt": "bad",
-											"credits": null
-										}
+									"key": "a004cba4-7188-4684-8970-5d279e43bc63",
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "FileLink",
+										"id": "mock_Media_link",
+										"kind": "file",
+										"name": "mock_name",
+										"url": "https://source.unsplash.com/daily",
+										"size": "0",
+										"text": "putting"
 									}
 								}
 							]

@@ -1,50 +1,50 @@
 <template>
   <div class="relative">
     <!-- ARROW: LEFT -->
- 
+
     <Icon
       name="left"
-      class="w-12 h-auto absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-light shadow p-2 rounded-full opacity-90 cursor-pointer"
+      class="w-8 h-auto absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white shadow p-1 rounded-full opacity-80 cursor-pointer"
       @click="slider?.prev()"
     />
 
     <!-- SLIDER -->
     <div ref="sliderRef" class="keen-slider">
       <div
-        class="keen-slider__slide p-6 bg-white mb-6 flex flex-col shadow-md gap-1"
+        class="keen-slider__slide p-5 bg-white mb-6 flex flex-col shadow-md gap-1"
         v-for="(refData, i) in slides"
         :key="refData.item.id"
       >
- 
-          <img
-            v-if="refData.item.data.image"
-            :src="refData.item.data.image.url"
-            :alt="refData.item.data.image.alt || ''"
-            class="w-16 h-16 rounded-full object-cover object-top shrink-0"
-          />
+        <img
+          v-if="refData.item.data.image"
+          :src="refData.item.data.image.url"
+          :alt="refData.item.data.image.alt || ''"
+          class="w-16 h-16 rounded-full object-cover object-top shrink-0"
+        />
 
-         <p class="ref"> <prismic-rich-text :field="refData.item.data.name" /></p> 
-          <p class="ref"> <prismic-rich-text :field="refData.item.data.title" /></p>
+        <p class="ref"><prismic-rich-text :field="refData.item.data.name" /></p>
+        <p class="ref">
+          <prismic-rich-text :field="refData.item.data.title" />
+        </p>
 
-          <p>
-            {{ reviewPreview(i) }}
+        <p>
+          {{ reviewPreview(i) }}
 
-            <button
-              v-if="reviewIsLong(i)"
-              @click="toggle(i)"
-              class="text-primaryDark hover:underline text-xs text-left"
-            >
-              {{ expanded[i] ? "Visa mindre" : "Visa mer" }}
-            </button>
-          </p>
-        </div>
-      
+          <button
+            v-if="reviewIsLong(i)"
+            @click="toggle(i)"
+            class="text-primaryDark hover:underline text-xs text-left"
+          >
+            {{ expanded[i] ? "Visa mindre" : "Visa mer" }}
+          </button>
+        </p>
+      </div>
     </div>
 
     <!-- ARROW: RIGHT -->
     <Icon
       name="right"
-      class="w-12 h-auto absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white shadow p-2 rounded-full  opacity-90 cursor-pointer"
+      class="w-8 h-auto absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white shadow p-1 rounded-full opacity-80 cursor-pointer"
       @click="slider?.next()"
     />
   </div>
@@ -57,7 +57,6 @@ import "keen-slider/keen-slider.min.css";
 
 const props = defineProps({ slides: Array });
 
-// ===== Expand / collapse logic =====
 const WORD_LIMIT = 35;
 const expanded = ref({});
 
@@ -72,24 +71,32 @@ const reviewPreview = (i) => {
   return words.slice(0, WORD_LIMIT).join(" ") + "...";
 };
 
-// ===== Keen Slider =====
+// Keen slider
 const sliderRef = ref(null);
 let slider;
 
 onMounted(() => {
   slider = new KeenSlider(sliderRef.value, {
     loop: true,
-    spacing: 20,
     mode: "snap",
-
-    breakpoints: {
-      "(min-width: 400px)": { slides: { perView: 1 } },
-      "(min-width: 720px)": { slides: { perView: 2 } },
-      "(min-width: 1224px)": { slides: { perView: 3 } },
-      "(min-width: 1580px)": { slides: { perView: 4 } },
+    slides: {
+      perView: 1,
+      spacing: 20,
     },
-
-    slides: { perView: 1 },
+    breakpoints: {
+      "(min-width: 400px)": {
+        slides: { perView: 1, spacing: 20 },
+      },
+      "(min-width: 720px)": {
+        slides: { perView: 2, spacing: 12 },
+      },
+      "(min-width: 1224px)": {
+        slides: { perView: 3, spacing: 12 },
+      },
+      "(min-width: 1580px)": {
+        slides: { perView: 4, spacing: 12 },
+      },
+    },
 
     created(slider) {
       let timeout;
