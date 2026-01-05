@@ -634,6 +634,16 @@ export interface HeroSliceDefaultPrimary {
   heading: prismic.RichTextField;
 
   /**
+   * Image or video field in *Hero → Default → Primary*
+   *
+   * - **Field Type**: Link to Media
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.default.primary.hero_img
+   * - **Documentation**: https://prismic.io/docs/fields/link-to-media
+   */
+  hero_img: prismic.LinkToMediaField<prismic.FieldState, never>;
+
+  /**
    * Text field in *Hero → Default → Primary*
    *
    * - **Field Type**: Rich Text
@@ -660,16 +670,6 @@ export interface HeroSliceDefaultPrimary {
       "Primary" | "Secondary" | "CTA"
     >
   >;
-
-  /**
-   * Image or video field in *Hero → Default → Primary*
-   *
-   * - **Field Type**: Link to Media
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero.default.primary.hero_img
-   * - **Documentation**: https://prismic.io/docs/fields/link-to-media
-   */
-  hero_img: prismic.LinkToMediaField<prismic.FieldState, never>;
 }
 
 /**

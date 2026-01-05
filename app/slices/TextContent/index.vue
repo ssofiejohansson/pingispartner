@@ -15,7 +15,7 @@
       <!-- Icon -->
       <div
         v-if="slice.primary.icon && slice.primary.icon?.url"
-        class="flex my-4"
+        class="flex my-4 animate-fade animate-once animate-delay-[20ms]"
         :class="
           slice.variation === 'center'
             ? 'justify-center'

@@ -38,7 +38,12 @@
           v-else
           :src="slice?.primary?.media?.url"
           :alt="slice?.primary?.media?.alt"
-          class="w-full h-auto aspect-[16/12] object-cover object-center"
+          class="w-full h-auto aspect-[16/12] object-cover object-center duration-700 ease-out animate-once animate-delay-[20ms]"
+          :class="
+            slice.variation === 'default'
+              ? 'animate-fade-down lg:animate-fade-right'
+              : 'animate-fade-down lg:animate-fade-left'
+          "
         />
 
         <!-- Possible overlay -->

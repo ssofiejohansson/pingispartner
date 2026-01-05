@@ -7,8 +7,8 @@
         :field="link"
         @click.prevent="toggleDropdown"
         :class="[
-          'hover:text-primaryDark font-normal block pb-1 text-base text-center lg:text-left',
-          isActive ? 'border-b-4 border-primaryDark text-primaryDark' : '',
+          'hover:text-primaryDark font-semibold block pb-1 text-lg lg:text-base text-left',
+          isActive ? 'lg:border-b-4 border-primaryDark text-primaryDark' : '',
         ]"
       >
         {{ text }}

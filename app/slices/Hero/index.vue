@@ -31,14 +31,23 @@
     </div> -->
 
     <!-- Hero Text -->
+     
    <div class=" flex flex-col gap-2 items-center justify-center text-center max-w-3xl mx-auto p-6 my-12" >
    
-    <div class="flex flex-row gap-0  ">
+    <div class="flex flex-col gap-0  ">
        <prismic-rich-text :field="slice.primary.heading" /> 
+
+       <!-- possible hero img/logo -->
+         <img
+    v-if="slice.primary.hero_img?.url"
+    :src="slice.primary.hero_img.url"
+    :alt="slice.primary.hero_img.alt || ''"
+    class="w-12 md:w-16 h-auto object-contain mx-auto mb-2"
+  />
        <!-- <span>  <Icon name="pingisIcon" class=""/></span> -->
     </div>
-    <hr class="w-32 h-2 mx-auto my-4 bg-accent border-0"></hr>
-    <p class="text-lg font-light">
+    <!-- <hr class="w-32 h-2 mx-auto my-4 bg-accent border-0"/> -->
+    <p class="text-base md:text-lg font-light">
       <prismic-rich-text :field="slice.primary.text" />
     </p>
     

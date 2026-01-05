@@ -37,7 +37,7 @@ const variantClasses = computed(() => {
     case "Secondary":
       return "bg-transparent text-accent border border-accent hover:bg-accent hover:text-light transform hover:scale-105 transition-all duration-300";
     case "CTA":
-      return "lg:pl-11 pl-8 bg-accent text-white border border-accent hover:bg-transparent hover:text-accent transform hover:scale-105 group";
+      return "lg:pl-11 pl-8 bg-accent text-white border border-accent hover:bg-transparent hover:text-accent transform hover:scale-105 group ";
     default:
       return "";
   }

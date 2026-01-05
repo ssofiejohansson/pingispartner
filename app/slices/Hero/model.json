@@ -21,6 +21,15 @@
             "multi": "heading1"
           }
         },
+        "hero_img": {
+          "type": "Link",
+          "config": {
+            "label": "Image or video",
+            "placeholder": "",
+            "select": "media",
+            "allowText": false
+          }
+        },
         "text": {
           "type": "StructuredText",
           "config": {
@@ -44,15 +53,6 @@
               "Secondary",
               "CTA"
             ]
-          }
-        },
-        "hero_img": {
-          "type": "Link",
-          "config": {
-            "label": "Image or video",
-            "placeholder": "",
-            "select": "media",
-            "allowText": false
           }
         }
       },
