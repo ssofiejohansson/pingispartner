@@ -8,9 +8,10 @@
             class="h-20 w-auto block"
           />
         </nuxt-link>
-        
+<!-- 
+        <SiteNavigation :is-footer="true" /> -->
+
         <!-- <pre>{{ footer?.data }}</pre> -->
-        
 
         <!-- links -->
         <!-- <ul>
@@ -33,7 +34,13 @@
 
         <div class="flex items-center gap-2">
           <p class="text-base">I samarbete med</p>
-          <Icon name="stiga" class="h-10 w-auto" />
+          <PrismicLink
+            href="https://www.stigasports.com/sv"
+            target="_blank"
+            rel="noopener"
+          >
+            <Icon name="stiga" class="h-10 w-auto" />
+          </PrismicLink>
         </div>
       </div>
     </div>
@@ -41,8 +48,6 @@
 </template>
 
 <script setup>
-import { components } from "~/slices";
-
 const home = useHome();
 const { data: settings } = await useSettings();
 const { data: footer } = await useFooter();

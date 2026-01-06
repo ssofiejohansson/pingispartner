@@ -47,11 +47,10 @@
           />
 
           <!-- Text content -->
-          <div class="lg:px-1 flex flex-col gap-2">
-            <h2 class="ref">
+          <div class="lg:px-1 flex flex-col gap-2 ">
+           <div class="ref">
               <prismic-rich-text :field="ref.data.name" />
-            </h2>
-            <div class="ref">
+
               <prismic-rich-text :field="ref.data.title" />
             </div>
 

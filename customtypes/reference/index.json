@@ -32,7 +32,7 @@
           "label": "Name",
           "placeholder": "",
           "allowTargetBlank": true,
-          "single": "paragraph"
+          "single": "heading2"
         }
       },
       "title": {
