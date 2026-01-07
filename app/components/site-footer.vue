@@ -8,38 +8,20 @@
             class="h-20 w-auto block"
           />
         </nuxt-link>
-<!-- 
-        <SiteNavigation :is-footer="true" /> -->
+        
+        <SiteNavigation class="hidden lg:block" :is-footer="true" />
 
-        <!-- <pre>{{ footer?.data }}</pre> -->
 
-        <!-- links -->
-        <!-- <ul>
-          <li
-            v-for="(link, index) in footer?.data?.links || []"
-            :key="`footer-link-${index}`"
-            class="text-center"
-          >
-            <PrismicLink :field="primary.link">
-              {{ primary.link.text }}
-            </PrismicLink>
-          </li>
-        </ul> -->
-
-        <!-- <SliceZone
-          v-if="footer?.data?.slices?.length"
-          :slices="footer.data.slices"
-          :components="components"
-        /> -->
-
-        <div class="flex items-center gap-2">
-          <p class="text-base">I samarbete med</p>
+        <div class="flex flex-col lg:flex-row items-center gap-4">
+          <p class="text-base md:-mb-1">I samarbete med</p>
           <PrismicLink
             href="https://www.stigasports.com/sv"
             target="_blank"
             rel="noopener"
           >
-            <Icon name="stiga" class="h-10 w-auto" />
+            <div class="h-8">
+              <Icon name="stiga" class="h-full w-full" />
+            </div>
           </PrismicLink>
         </div>
       </div>
