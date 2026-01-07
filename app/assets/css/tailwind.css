@@ -123,20 +123,12 @@
    font-size: larger;
    font-weight: bold;
   }
-    .ref p{
+  .ref p{
    font-size: large;
   }
 
   a {
     @apply no-underline;
-  }
-
-  .form-input {
-    @apply border border-dark w-full h-12 rounded-md px-5;
-  }
-
-  .form-textarea {
-    @apply border border-dark w-full h-20 rounded-md p-5;
   }
 }
 

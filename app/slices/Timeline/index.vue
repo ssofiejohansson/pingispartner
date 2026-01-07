@@ -6,7 +6,7 @@
   >
     <div class="container relative">
       <div
-        class="absolute -top-20 left-4 md:left-1/2 md:-translate-x-1/2 text-primaryDark font-bold text-3xl"
+        class="absolute -top-14 md:-top-20 left-4 md:left-1/2 md:-translate-x-1/2 text-primaryDark font-bold text-2xl md:text-3xl"
       >
         <span class="border-b-8 border-primaryDark mb-4 z-100"> 1962 </span>
       </div>
