@@ -36,7 +36,7 @@
     
     <!--  copyright -->
   <p class="text-xs text-gray-500  text-center">
-    &copy; 2026 Pingispartner. Created by SJ.
+    &copy; 2026 Pingispartner.se. All rights reserved.
   </p>
   </div>
 
