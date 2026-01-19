@@ -58,7 +58,7 @@
         "config": {
           "label": "Category",
           "placeholder": "",
-          "options": ["private", "company"]
+          "options": ["sparring", "company", "coach", "club"]
         }
       }
     }

@@ -13,8 +13,10 @@
         <Button
           v-for="(option, i) in [
             { label: 'Alla', value: 'all', variant: 'Primary' },
-            { label: 'Företag', value: 'company', variant: 'Primary' },
-            { label: 'Privat', value: 'private', variant: 'Primary' },
+            { label: 'Företagsevent', value: 'company', variant: 'Primary' },
+            { label: 'Sparringpartner', value: 'sparring', variant: 'Primary' },
+            { label: 'Tävlingscoach', value: 'coach', variant: 'Primary' },
+            { label: 'Klubbträning', value: 'club', variant: 'Primary' }
           ]"
           :class="'cursor-pointer'"
           :key="i"
@@ -47,8 +49,8 @@
           />
 
           <!-- Text content -->
-          <div class="lg:px-1 flex flex-col gap-2 ">
-           <div class="ref">
+          <div class="lg:px-1 flex flex-col gap-2">
+            <div class="ref">
               <prismic-rich-text :field="ref.data.name" />
 
               <prismic-rich-text :field="ref.data.title" />

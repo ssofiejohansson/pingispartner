@@ -547,7 +547,7 @@ interface ReferenceDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
-  category: prismic.SelectField<"private" | "company">;
+  category: prismic.SelectField<"sparring" | "company" | "coach" | "club">;
 }
 
 /**
