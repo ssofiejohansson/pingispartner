@@ -1,50 +1,54 @@
 <template>
-  <div class="relative">
+  <div class="container relative">
     <!-- ARROW: LEFT -->
 
     <Icon
       name="left"
-      class="w-8 h-auto absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white shadow p-1 rounded-full opacity-80 cursor-pointer"
+      class="w-10 h-auto absolute -left-2 top-1/2 -translate-y-1/2 z-10 bg-white shadow p-1 rounded-full opacity-80 cursor-pointer"
       @click="slider?.prev()"
     />
 
     <!-- SLIDER -->
     <div ref="sliderRef" class="keen-slider">
       <div
-        class="keen-slider__slide p-5 bg-white mb-6 flex flex-col shadow-md gap-1"
+        class="keen-slider__slide p-6 bg-white flex flex-col shadow-sm gap-4"
         v-for="(refData, i) in slides"
         :key="refData.item.id"
       >
-        <img
-          v-if="refData.item.data.image"
-          :src="refData.item.data.image.url"
-          :alt="refData.item.data.image.alt || ''"
-          class="w-16 h-16 rounded-full object-cover object-top shrink-0"
-        />
+        <div class="flex flex-row gap-2 justify-start items-center">
+          <Icon name="quote-left" class="h-4 w-auto -ml-4 -mb-20" />
+          <img
+            v-if="refData.item.data.image"
+            :src="refData.item.data.image.url"
+            :alt="refData.item.data.image.alt || ''"
+            class="w-16 h-16 rounded-full object-cover object-top shrink-0"
+          />
 
-        <p class="ref"><prismic-rich-text :field="refData.item.data.name" /></p>
-        <p class="ref">
-          <prismic-rich-text :field="refData.item.data.title" />
-        </p>
-
-        <p>
+          <div class="ref">
+            <prismic-rich-text :field="refData.item.data.name" />
+            <prismic-rich-text :field="refData.item.data.title" />
+          </div>
+        </div>
+  <div class="flex flex-col gap-1 ">
+  
           {{ reviewPreview(i) }}
 
           <button
             v-if="reviewIsLong(i)"
             @click="toggle(i)"
-            class="text-primaryDark hover:underline text-xs text-left"
+            class="text-primaryDark hover:underline text-sm text-left"
           >
             {{ expanded[i] ? "Visa mindre" : "Visa mer" }}
           </button>
-        </p>
+      
+      </div>
       </div>
     </div>
 
     <!-- ARROW: RIGHT -->
     <Icon
       name="right"
-      class="w-8 h-auto absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white shadow p-1 rounded-full opacity-80 cursor-pointer"
+      class="w-10 h-auto absolute -right-2 top-1/2 -translate-y-1/2 z-10 bg-white shadow p-1 rounded-full opacity-80 cursor-pointer"
       @click="slider?.next()"
     />
   </div>
@@ -91,10 +95,10 @@ onMounted(() => {
         slides: { perView: 2, spacing: 12 },
       },
       "(min-width: 1224px)": {
-        slides: { perView: 3, spacing: 12 },
+        slides: { perView: 3, spacing: 16 },
       },
       "(min-width: 1580px)": {
-        slides: { perView: 4, spacing: 12 },
+        slides: { perView: 4, spacing: 16 },
       },
     },
 

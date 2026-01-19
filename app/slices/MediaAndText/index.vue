@@ -2,23 +2,23 @@
   <section
     :data-slice-type="slice.slice_type"
     :data-slice-variation="slice.variation"
-    class="wide bg-white"
+    class="bg-white"
   >
     <div
-      class="flex flex-col lg:flex-row w-full justify-center"
+      class="wide xl:container flex flex-col lg:flex-row w-full justify-center"
       :class="[slice.primary.fixed_image ? 'items-start' : 'items-center']"
     >
       <!-- MEDIA -->
       <div
         v-if="slice.primary.media && slice.primary.media.url"
-        class="relative flex justify-center w-full to-lg:max-h-[400px] lg:w-1/2 lg:max-w-2xl flex-shrink-0"
+        class="relative flex justify-center w-full to-lg:max-h-[500px] lg:w-1/2 lg:max-w-3xl flex-shrink-0"
         :class="[
           slice.variation === 'default'
             ? 'lg:order-1'
             : !tjanster
               ? 'lg:order-2 lg:-mt-6'
               : 'lg:order-2 lg:mt-0',
-          slice.primary.fixed_image ? 'lg:sticky lg:top-0 max-w-xl' : '',
+          slice.primary.fixed_image ? 'lg:sticky lg:top-0' : '',
         ]"
       >
         <video
@@ -46,18 +46,15 @@
           "
         />
 
-        <!-- Possible overlay -->
-        <!-- <div
-          class="absolute inset-0 bg-primaryDark bg-opacity-10 pointer-events-none"
-        ></div> -->
+       
       </div>
 
       <!-- CONTENT -->
       <div
-        class="w-full lg:w-1/2 max-w-2xl lg:px-10 lg:py-4 py-12 px-4 rich-text"
+        class="w-full lg:w-1/2 px-6 py-10 rich-text"
         :class="[
           slice.variation === 'default' ? 'lg:order-2' : 'lg:order-1',
-          slice.primary.fixed_image ? 'lg:w-2/3  mb-6  px-6 py-8' : ' ',
+          slice.primary.fixed_image ? 'lg:w-2/3 mb-6' : ' ',
         ]"
       >
         <prismic-rich-text :field="slice.primary.content" />

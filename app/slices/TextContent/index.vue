@@ -2,7 +2,7 @@
   <section
     :data-slice-type="slice.slice_type"
     :data-slice-variation="slice.variation"
-    class="wide 2xl:container px-6 my-16 lg:my-28"
+    class="wide xl:container px-6 my-16 lg:my-28"
   >
     <div
       class="rich-text max-w-2xl"
@@ -32,10 +32,12 @@
       </div>
 
       <!-- Text -->
-      <prismic-rich-text
-        v-if="slice.primary.content?.length"
-        :field="slice.primary.content"
-      />
+      <div class="intro">
+        <prismic-rich-text
+          v-if="slice.primary.content?.length"
+          :field="slice.primary.content"
+        />
+      </div>
 
       <!-- Buttons -->
       <div
@@ -44,7 +46,7 @@
         :class="
           slice.variation === 'center'
             ? 'justify-center'
-            : 'justify-center sm:justify-start'
+            : 'justify-center md:justify-start'
         "
       >
         <Button v-for="(btn, i) in slice.primary.button" :key="i" :btn="btn" />

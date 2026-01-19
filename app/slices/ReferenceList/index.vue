@@ -5,9 +5,9 @@
     class=""
   >
     <div class="xl:container px-6">
-      <!-- Sortbutton by select: company/private or all as default -->
+      <!-- Sortbutton by select -->
       <div
-        class="flex items-center justify-start gap-3 my-6"
+        class="flex flex-wrap items-center justify-center md:justify-start gap-3 my-6"
         v-if="slice.variation === 'default'"
       >
         <Button
@@ -16,7 +16,7 @@
             { label: 'Företagsevent', value: 'company', variant: 'Primary' },
             { label: 'Sparringpartner', value: 'sparring', variant: 'Primary' },
             { label: 'Tävlingscoach', value: 'coach', variant: 'Primary' },
-            { label: 'Klubbträning', value: 'club', variant: 'Primary' }
+            { label: 'Klubbträning', value: 'club', variant: 'Primary' },
           ]"
           :class="'cursor-pointer'"
           :key="i"
@@ -38,46 +38,49 @@
           v-if="slice.variation === 'default'"
           v-for="ref in filteredReferences"
           :key="ref.id"
-          class="bg-white flex flex-col gap-2 to-md:mb-4 justify-start px-4 py-6 shadow-md"
+          class="bg-white flex flex-col gap-4 to-md:mb-4 justify-start px-4 py-6 shadow-sm"
         >
-          <!-- Image -->
-          <img
-            v-if="ref.data.image"
-            :src="ref.data.image.url"
-            :alt="ref.data.image.alt || ''"
-            class="w-28 h-28 rounded-full object-cover object-top shrink-0"
-          />
+          <div class="flex flex-row gap-4 justify-start items-center">
+             <Icon name="quote-left" class="h-6 w-auto -ml-6 -mb-28 shrink-0" />
+            <!-- Image -->
+            <img
+              v-if="ref.data.image"
+              :src="ref.data.image.url"
+              :alt="ref.data.image.alt || ''"
+              class="w-28 h-28 rounded-full object-cover object-top shrink-0"
+            />
 
-          <!-- Text content -->
-          <div class="lg:px-1 flex flex-col gap-2">
+            <!-- Text content -->
+
             <div class="ref">
               <prismic-rich-text :field="ref.data.name" />
 
               <prismic-rich-text :field="ref.data.title" />
             </div>
+           
+          </div>
+          <!-- Text with preview / toggle -->
+          <div class="flex flex-col">
+            <template v-if="!expanded[ref.id]">
+              <!-- Preview text -->
+              {{ reviewPreview(ref.id) }}
+            </template>
+            <template v-else>
+              <!-- Full rich text including lists -->
+              <prismic-rich-text :field="ref.data.text" />
+            </template>
 
-            <!-- Text with preview / toggle -->
-            <div class="rich-text">
-              <template v-if="!expanded[ref.id]">
-                <!-- Preview text -->
-                {{ reviewPreview(ref.id) }}
-              </template>
-              <template v-else>
-                <!-- Full rich text including lists -->
-                <prismic-rich-text :field="ref.data.text" />
-              </template>
-
-              <!-- Toggle button -->
-              <button
-                v-if="reviewIsLong(ref.id)"
-                @click="toggle(ref.id)"
-                class="text-primaryDark hover:underline text-xs mt-1"
-              >
-                {{ expanded[ref.id] ? "Visa mindre" : "Visa mer" }}
-              </button>
-            </div>
+            <!-- Toggle button -->
+            <button
+              v-if="reviewIsLong(ref.id)"
+              @click="toggle(ref.id)"
+              class="text-primaryDark hover:underline mt-2 text-sm text-left"
+            >
+              {{ expanded[ref.id] ? "Visa mindre" : "Visa mer" }}
+            </button>
           </div>
         </div>
+            
       </div>
     </div>
 
