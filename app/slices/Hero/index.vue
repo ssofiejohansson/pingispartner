@@ -22,7 +22,7 @@
  
     </div>
  
-    <div class="text-base md:text-lg font-light">
+    <div class="text-base md:text-md font-light">
       <prismic-rich-text :field="slice.primary.text" />
     </div>
     
