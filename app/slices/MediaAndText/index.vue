@@ -34,19 +34,21 @@
           loop
         ></video>
 
-        <img
-          v-else
-          :src="slice?.primary?.media?.url"
-          :alt="slice?.primary?.media?.alt"
-          class="w-full h-auto aspect-[16/12] object-cover object-center duration-700 ease-out animate-once animate-delay-[20ms]"
-          :class="
-            slice.variation === 'default'
-              ? 'animate-fade-down lg:animate-fade-right'
-              : 'animate-fade-down lg:animate-fade-left'
-          "
-        />
-
-       
+       <img
+  ref="imageRef"
+  v-else-if="slice?.primary?.media?.url && 
+            !(slice?.primary?.media?.kind === 'file' && slice?.primary?.media?.name.includes('mp4'))"
+  :src="slice?.primary?.media?.url"
+  :alt="slice?.primary?.media?.alt"
+  class="w-full h-auto aspect-[16/12] object-cover object-center
+         opacity-100 lg:opacity-0 lg:translate-y-6 will-change-transform"
+  :class="
+    imageVisible &&
+    (slice.variation === 'default'
+      ? 'lg:animate-fade-right'
+      : 'lg:animate-fade-left')
+  "
+/>
       </div>
 
       <!-- CONTENT -->
@@ -85,9 +87,28 @@
 }
 </style>
 <script setup>
+import { ref, onMounted } from "vue";
 defineProps(["slice", "index", "slices", "context"]);
 
 // define what route for some styling
 const route = useRoute();
 const tjanster = route.name === "tjanster" || route.path.includes("/tjanster");
+
+const imageVisible = ref(false);
+const imageRef = ref(null);
+
+onMounted(() => {
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting) {
+        imageVisible.value = true;
+        observer.disconnect();
+      }
+    },
+    { threshold: 0.25 }
+  );
+
+  if (imageRef.value) observer.observe(imageRef.value);
+});
+
 </script>

@@ -4,7 +4,7 @@
 
     <Icon
       name="left"
-      class="w-10 h-auto absolute -left-2 top-1/2 -translate-y-1/2 z-10 bg-white shadow p-1 rounded-full opacity-80 cursor-pointer"
+      class="ml-1 w-10 h-auto absolute -left-2 top-1/2 -translate-y-1/2 z-10 bg-white shadow p-1 rounded-full opacity-90 cursor-pointer"
       @click="slider?.prev()"
     />
 
@@ -48,7 +48,7 @@
     <!-- ARROW: RIGHT -->
     <Icon
       name="right"
-      class="w-10 h-auto absolute -right-2 top-1/2 -translate-y-1/2 z-10 bg-white shadow p-1 rounded-full opacity-80 cursor-pointer"
+      class="mr-1 w-10 h-auto absolute -right-2 top-1/2 -translate-y-1/2 z-10 bg-white shadow p-1 rounded-full opacity-90 cursor-pointer"
       @click="slider?.next()"
     />
   </div>

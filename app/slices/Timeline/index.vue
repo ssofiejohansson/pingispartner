@@ -21,7 +21,7 @@
         <div
           v-for="(item, i) in slice.primary.year"
           :key="i"
-          class="flex flex-col md:flex-row items-start pl-4 md:pl-0 gap-6"
+          class="flex flex-col md:flex-row items-start md:justify-center pl-4 md:pl-0 gap-6"
           :class="[
             i % 2 === 0 ? 'md:flex-row-reverse' : '', // alternate sides on content and img
           ]"
@@ -33,14 +33,14 @@
 
           <!-- text -->
           <div
-            class="max-w-md w-full relative bg-light py-1"
-            :class="[
+            class="max-w-md w-full relative bg-light md:px-4"
+            :class="
               i % 2 === 0
-                ? 'md:text-left md:ml-auto'
-                : 'md:text-right md:mr-auto',
-            ]"
+                ? 'md:text-left md:mr-auto'
+                : 'md:text-right md:ml-auto'
+            "
           >
-            <p class="font-bold text-lg">{{ item.year }}</p>
+            <p class="font-bold text-lg text-primaryDark">{{ item.year }}</p>
             <p class="font-semibold">{{ item.title }}</p>
 
             <prismic-rich-text
@@ -49,9 +49,10 @@
             />
           </div>
 
+          <!-- media -->
           <div
-            class="lg:max-w-md max-w-xs w-full"
-            :class="[i % 2 === 0 ? 'md:mr-auto' : 'md:ml-auto']"
+            class="lg:max-w-md max-w-xs w-full md:mx-0 px-4"
+            :class="i % 2 === 0 ? 'md:ml-auto' : 'md:mr-auto'"
           >
             <!-- VIDEO -->
             <video
@@ -60,7 +61,7 @@
                 item?.media?.name?.includes('mp4')
               "
               :src="item.media.url"
-              class="w-full h-auto aspect-[16/12] object-cover"
+              class="w-full h-auto aspect-[16/12] object-contain"
               muted
               autoplay
               loop
@@ -72,7 +73,13 @@
               v-else-if="item?.media?.url"
               :src="item.media.url"
               :alt="item.media.alt || ''"
-              class="w-full h-auto aspect-[16/12] object-cover object-center"
+              data-timeline-image
+              :data-index="i"
+              class="w-full h-auto aspect-[16/12] object-contain object-center opacity-100 md:opacity-0 will-change-transform"
+              :class="
+                visibleItems.has(i) &&
+                (i % 2 === 0 ? 'md:animate-fade-left' : 'md:animate-fade-right')
+              "
             />
           </div>
         </div>
@@ -82,7 +89,35 @@
 </template>
 
 <script setup>
-import Icon from "~/components/icon.vue";
-
 defineProps(["slice", "index", "slices", "context"]);
+
+import { ref, onMounted, onBeforeUnmount, nextTick } from "vue";
+
+const visibleItems = ref(new Set());
+let observer;
+
+onMounted(async () => {
+  await nextTick();
+
+  observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const index = entry.target.dataset.index;
+          visibleItems.value.add(Number(index));
+          observer.unobserve(entry.target); // animate once
+        }
+      });
+    },
+    { threshold: 0.35 }
+  );
+
+  document.querySelectorAll("[data-timeline-image]").forEach((el) => {
+    observer.observe(el);
+  });
+});
+
+onBeforeUnmount(() => {
+  observer?.disconnect();
+});
 </script>

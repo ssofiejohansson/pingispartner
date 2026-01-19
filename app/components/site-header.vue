@@ -21,15 +21,25 @@
     <div class="lg:hidden">
       <button
         @click="mobileMenuOpen = !mobileMenuOpen"
-        class="w-12 h-12 relative z-[60] text-dark"
+        class="relative w-12 h-12 z-[60] text-dark"
       >
-        <transition name="icon" mode="out-in">
-          <Icon
-            :key="mobileMenuOpen"
-            :name="mobileMenuOpen ? 'x' : 'hamburger'"
-            class="w-12 h-12"
-          />
-        </transition>
+        <!-- Hamburger -->
+        <Icon
+          name="hamburger"
+          class="absolute inset-0 w-12 h-12 transition-all duration-100"
+          :class="
+            mobileMenuOpen ? 'opacity-0 rotate-90 scale-75' : 'opacity-100'
+          "
+        />
+
+        <!-- X -->
+        <Icon
+          name="x"
+          class="absolute inset-0 w-12 h-12 transition-all duration-100 "
+          :class="
+            mobileMenuOpen ? 'opacity-100' : 'opacity-0 -rotate-90 scale-75'
+          "
+        />
       </button>
     </div>
 
