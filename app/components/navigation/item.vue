@@ -7,8 +7,9 @@
         :field="link"
         @click.prevent="toggleDropdown"
         :class="[
-          'hover:text-primaryDark font-semibold block pb-1 text-lg lg:text-base text-left',
+          'hover:text-primaryDark block pb-1 text-left',
           isActive ? 'lg:border-b-4 border-primaryDark text-primaryDark' : '',
+          isFooter ? 'font-medium text-sm' : 'text-lg lg:text-base font-semibold',
         ]"
       >
         {{ text }}
@@ -30,6 +31,7 @@
         :items="[]"
         :link="item.link"
         :text="item.text"
+        :is-footer="isFooter"
         class="py-2"
       />
     </ul>
@@ -41,6 +43,10 @@ const props = defineProps({
   items: { type: Array, default: () => [] },
   link: { type: Object, required: true },
   text: { type: String, required: true },
+  isFooter: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 const open = ref(false);
