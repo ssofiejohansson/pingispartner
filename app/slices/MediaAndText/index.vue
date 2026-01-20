@@ -16,23 +16,32 @@
           slice.variation === 'default'
             ? 'lg:order-1'
             : !tjanster
-              ? 'lg:order-2 lg:-mt-6'
-              : 'lg:order-2 lg:mt-0',
+              ? 'lg:order-2'
+              : 'lg:order-2',
           slice.primary.fixed_image ? 'lg:sticky lg:top-0' : '',
         ]"
       >
-        <video
-          v-if="
-            slice?.primary?.media?.kind === 'file' &&
-            slice?.primary?.media?.name.includes('mp4')
-          "
-          :src="slice?.primary?.media?.url"
-          class="w-full h-auto aspect-[16/12] object-cover"
-          muted
-          autoplay
-          playsinline
-          loop
-        ></video>
+     <video
+  v-if="
+    slice?.primary?.media?.kind === 'file' &&
+    slice?.primary?.media?.name.includes('mp4')
+  "
+  :src="slice?.primary?.media?.url"
+  class="w-full h-auto aspect-[16/12] object-cover"
+  muted
+  autoplay
+  playsinline
+  loop
+  aria-hidden="true"
+>
+  <track
+    kind="captions"
+    srclang="sv"
+    label="Svenska"
+    src="/captions/pingispartner-sv.vtt"
+    default
+  />
+</video>
 
        <img
   ref="imageRef"

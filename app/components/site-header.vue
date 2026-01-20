@@ -22,6 +22,7 @@
       <button
         @click="mobileMenuOpen = !mobileMenuOpen"
         class="relative w-12 h-12 z-[60] text-dark"
+        aria-label="menu"
       >
         <!-- Hamburger -->
         <Icon

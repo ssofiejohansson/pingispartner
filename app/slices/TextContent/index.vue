@@ -8,7 +8,7 @@
       class="rich-text max-w-2xl"
       :class="
         slice.variation === 'center'
-          ? 'text-center sm:mx-auto '
+          ? 'text-center sm:mx-auto rich-text--center'
           : 'text-center md:text-left'
       "
     >
