@@ -54,7 +54,7 @@
       </div>
 
       <!--  copyright -->
-      <p class="text-xs text-gray-500 text-center">
+      <p class="text-xs text-dark text-center">
         &copy; 2026 Pingispartner.se. All rights reserved.
       </p>
     </div>
