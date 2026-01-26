@@ -16,13 +16,13 @@ const { data: doc } = await useAsyncData(`homepage-${lang}`, async () => {
   });
 });
 
-if (!doc?.value) {
-  throw createError({
-    statusCode: 404,
-    statusMessage: "Sidan kunde inte hittas | Den här sidan kan inte visas just nu.",
-    fatal: true,
-  });
-}
+// if (!doc?.value) {
+//   throw createError({
+//     statusCode: 404,
+//     statusMessage: "Sidan kunde inte hittas | Den här sidan kan inte visas just nu.",
+//     fatal: true,
+//   });
+// }
 
 useSeo({ doc });
 </script>

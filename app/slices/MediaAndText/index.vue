@@ -21,43 +21,42 @@
           slice.primary.fixed_image ? 'lg:sticky lg:top-0' : '',
         ]"
       >
-     <video
-  v-if="
-    slice?.primary?.media?.kind === 'file' &&
-    slice?.primary?.media?.name.includes('mp4')
-  "
-  :src="slice?.primary?.media?.url"
-  class="w-full h-auto aspect-[16/12] object-cover"
-  muted
-  autoplay
-  playsinline
-  loop
-  aria-hidden="true"
->
-  <track
-    kind="captions"
-    srclang="sv"
-    label="Svenska"
-    src="/captions/pingispartner-sv.vtt"
-    default
-  />
-</video>
+        <video
+          v-if="
+            slice?.primary?.media?.kind === 'file' &&
+            slice?.primary?.media?.name.includes('mp4')
+          "
+          :src="slice?.primary?.media?.url"
+          class="w-full h-auto aspect-[16/12] object-cover"
+          muted
+          autoplay
+          playsinline
+          loop
+          preload="none"
+          aria-hidden="true"
+        ></video>
 
-       <img
-  ref="imageRef"
-  v-else-if="slice?.primary?.media?.url && 
-            !(slice?.primary?.media?.kind === 'file' && slice?.primary?.media?.name.includes('mp4'))"
-  :src="slice?.primary?.media?.url"
-  :alt="slice?.primary?.media?.alt"
-  class="w-full h-auto aspect-[16/12] object-cover object-center
-         opacity-100 lg:opacity-0 lg:translate-y-6 will-change-transform"
-  :class="
-    imageVisible &&
-    (slice.variation === 'default'
-      ? 'lg:animate-fade-right'
-      : 'lg:animate-fade-left')
-  "
-/>
+        <img
+          ref="imageRef"
+          v-else-if="
+            slice?.primary?.media?.url &&
+            !(
+              slice?.primary?.media?.kind === 'file' &&
+              slice?.primary?.media?.name.includes('mp4')
+            )
+          "
+          :src="slice?.primary?.media?.url"
+          :alt="slice?.primary?.media?.alt || ''"
+          loading="lazy"
+          decoding="async"
+          class="w-full h-auto aspect-[16/12] object-cover object-center opacity-100 lg:opacity-0 lg:translate-y-6 will-change-transform"
+          :class="
+            imageVisible &&
+            (slice.variation === 'default'
+              ? 'lg:animate-fade-right'
+              : 'lg:animate-fade-left')
+          "
+        />
       </div>
 
       <!-- CONTENT -->
@@ -114,10 +113,9 @@ onMounted(() => {
         observer.disconnect();
       }
     },
-    { threshold: 0.25 }
+    { threshold: 0.25 },
   );
 
   if (imageRef.value) observer.observe(imageRef.value);
 });
-
 </script>

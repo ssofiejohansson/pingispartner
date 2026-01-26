@@ -27,8 +27,7 @@ const { data: doc, refresh } = await useAsyncData(
 if (!doc?.value) {
   throw createError({
     statusCode: 404,
-    statusMessage: "Sidan kunde inte hittas | Den här sidan kan inte visas just nu.",
-    fatal: true,
+    statusMessage: "Sidan kunde tyvvärr inte hittas",
   });
 }
 
