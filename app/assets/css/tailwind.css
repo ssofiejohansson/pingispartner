@@ -72,7 +72,7 @@
   .rich-text p,
   ul,
   ol {
-    @apply text-base my-4 last:mb-0 first:mt-0 leading-relaxed;
+    @apply text-base my-4 last:mb-0 first:mt-0 ;
   }
 
   .intro p {

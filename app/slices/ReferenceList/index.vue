@@ -60,7 +60,7 @@
            
           </div>
           <!-- Text with preview / toggle -->
-          <div class="flex flex-col">
+          <div class="flex flex-col rich-text">
             <template v-if="!expanded[ref.id]">
               <!-- Preview text -->
               {{ reviewPreview(ref.id) }}

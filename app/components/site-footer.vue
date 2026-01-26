@@ -43,7 +43,7 @@
           <Icon name="facebook" class="h-10 w-10" />
         </PrismicLink>
         <PrismicLink
-          href="https://www.instagram.com"
+          href="https://www.instagram.com/pingispartner"
           target="_blank"
           rel="noopener"
           aria-label="Följ oss på Instagram"
