@@ -44,6 +44,15 @@
           "multi": "paragraph"
         }
       },
+      "year": {
+        "type": "StructuredText",
+        "config": {
+          "label": "År",
+          "placeholder": "Tidsperiod",
+          "allowTargetBlank": false,
+          "single": "paragraph"
+        }
+      },
       "text": {
         "type": "StructuredText",
         "config": {

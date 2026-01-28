@@ -41,7 +41,7 @@
           class="bg-white flex flex-col gap-4 to-md:mb-4 justify-start px-4 py-6 shadow-sm"
         >
           <div class="flex flex-row gap-4 justify-start items-center">
-             <Icon name="quote-left" class="h-6 w-auto -ml-6 -mb-28 shrink-0" />
+            <Icon name="quote-left" class="h-6 w-auto -ml-6 -mb-28 shrink-0" />
             <!-- Image -->
             <img
               v-if="ref.data.image"
@@ -53,11 +53,15 @@
             <!-- Text content -->
 
             <div class="ref">
+              
               <prismic-rich-text :field="ref.data.name" />
-
               <prismic-rich-text :field="ref.data.title" />
+              <div
+                class="text-xs font-bold text-primaryDark"
+              >
+                <prismic-rich-text :field="ref.data.year" />
+              </div>
             </div>
-           
           </div>
           <!-- Text with preview / toggle -->
           <div class="flex flex-col rich-text">
@@ -80,7 +84,6 @@
             </button>
           </div>
         </div>
-            
       </div>
     </div>
 
@@ -101,7 +104,7 @@ const prismic = usePrismic();
 
 // Fetch all references
 const { data: allReferences } = await useAsyncData("all-references", () =>
-  prismic.client.getAllByType("reference")
+  prismic.client.getAllByType("reference"),
 );
 
 // Filtering logic
@@ -117,7 +120,7 @@ const filteredReferences = computed(() => {
     .sort((a, b) =>
       a.data.name[0]?.text?.localeCompare(b.data.name[0]?.text, "sv", {
         sensitivity: "base",
-      })
+      }),
     );
 });
 

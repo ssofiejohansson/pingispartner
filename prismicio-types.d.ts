@@ -528,6 +528,17 @@ interface ReferenceDocumentData {
   title: prismic.RichTextField;
 
   /**
+   * År field in *Reference*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Tidsperiod
+   * - **API ID Path**: reference.year
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  year: prismic.RichTextField;
+
+  /**
    * Text field in *Reference*
    *
    * - **Field Type**: Rich Text
